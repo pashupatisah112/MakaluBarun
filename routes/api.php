@@ -40,7 +40,24 @@ Route::group(['middleware'=>['auth:api'],'namespace'=>'Admin'],function(){
     Route::post('addTeamImage',[\App\Http\Controllers\Admin\TeamController::class,'addTeamImage']);
     Route::post('changeTeamImage',[\App\Http\Controllers\Admin\TeamController::class,'changeTeamImage']);
 
+    //Slider
+    Route::get('sliders',[\App\Http\Controllers\Admin\SliderController::class,'index']);
+    Route::post('sliders',[\App\Http\Controllers\Admin\SliderController::class,'store']);
+    Route::put('sliders/{slider}',[\App\Http\Controllers\Admin\SliderController::class,'update']);
+    Route::delete('sliders/{slider}',[\App\Http\Controllers\Admin\SliderController::class,'delete']);
+    Route::post('addSliderImage',[\App\Http\Controllers\Admin\SliderController::class,'addSliderImage']);
+    Route::post('changeSliderImage',[\App\Http\Controllers\Admin\SliderController::class,'changeSliderImage']);
+
+    //Messages
+    Route::post('myMessages',[\App\Http\Controllers\Admin\MessageController::class,'myMessages']);
+    Route::delete('messages/{message}',[\App\Http\Controllers\Admin\MessageController::class,'delete']);
+
+    //Subscribers
+    Route::post('mySubscribers',[\App\Http\Controllers\Admin\SubscriberController::class,'mySubscribers']);
+
 });
+Route::post('recordMessage',[\App\Http\Controllers\HomeController::class,'recordMessage']);
+
 Route::post('adminLogin',[AuthController::class,'adminLogin']);
 
 

@@ -46,6 +46,21 @@ export default {
                     icon: 'mdi-account-group',
                     link:'/ma-admin/teams'
                 },
+                {
+                    title: 'Slider',
+                    icon: 'mdi-play-pause',
+                    link:'/ma-admin/slider'
+                },
+                {
+                    title: 'Messages',
+                    icon: 'mdi-message-text',
+                    link:'/ma-admin/messages'
+                },
+                {
+                    title: 'Subscribers',
+                    icon: 'mdi-bell-ring',
+                    link:'/ma-admin/subscribers'
+                },
             ],
         }
     },

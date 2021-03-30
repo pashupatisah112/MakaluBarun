@@ -15,8 +15,9 @@ export default new Vuetify({
                 accent: colors.shades.black,
                 white:"#ffffff",
                 black:"#000000",
-                prime:"#009E9A;",
-                sec:"#F77D4D"
+                prime:"#BE9F50",
+                sec:"#8E5324",
+                tert:"#E0E0E0"
                
             },
             dark: {

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-app-bar color="deep-purple accent-4" dense dark app>
+    <v-app-bar color="prime" dense dark app>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
         <v-toolbar-title>Admin Dashboard</v-toolbar-title>

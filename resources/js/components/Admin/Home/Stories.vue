@@ -10,7 +10,7 @@
                 <!--add new story-->
                 <v-dialog v-model="storyDialog" max-width="1200px" persistent>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn class="mr-2 float-right" fab dark color="success" v-bind="attrs" v-on="on">
+                        <v-btn class="mr-2 float-right" fab dark color="sec" v-bind="attrs" v-on="on">
                             <v-icon dark>mdi-plus</v-icon>
                         </v-btn>
                     </template>
@@ -37,8 +37,8 @@
 
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
-                                        <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                                        <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                                        <v-btn color="sec" text @click="close">Cancel</v-btn>
+                                        <v-btn color="sec" text @click="save">Save</v-btn>
                                     </v-card-actions>
                                 </v-form>
                             </v-container>

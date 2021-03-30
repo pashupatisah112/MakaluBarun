@@ -9,10 +9,17 @@ import Dashboard from "./Pages/Admin/Home";
 import AdminStories from "./components/Admin/Home/Stories";
 import AdminProjects from './components/Admin/Home/Projects';
 import AdminTeams from './components/Admin/Home/Team';
+import Slider from './components/Admin/Home/Slider';
+import Messages from './components/Admin/Home/Messages';
+import Subscribers from './components/Admin/Home/Subscribers';
 
 //User components import
 import Main from "./Pages/User/Index";
 import Home from "./Pages/User/Home";
+import About from './Pages/User/About';
+import Project from './Pages/User/Projects';
+import Blog from './Pages/User/BlogList';
+import Contact from './Pages/User/Contact';
 
 const routes = [
     {
@@ -45,8 +52,27 @@ const routes = [
                 name: "AdminTeams",
                 component: AdminTeams
             },
+            {
+                path: "slider",
+                name: "Slider",
+                component: Slider
+            },
+            {
+                path: "messages",
+                name: "Messages",
+                component: Messages
+            },
+            {
+                path: "subscribers",
+                name: "Subscribers",
+                component: Subscribers
+            },
         ]
     },
+{
+    path:'/home',
+    redirect:'/'
+},
     {
         path: "/",
         component: Main,
@@ -56,9 +82,33 @@ const routes = [
                 name: "Home",
                 component: Home
             },
+            {
+                path: "about-us",
+                name: "About",
+                component: About
+            },
+            {
+                path: "projects",
+                name: "Project",
+                component: Project
+            },
+            {
+                path: "contact-us",
+                name: "Contact",
+                component: Contact
+            },
+            {
+                path: "team",
+                name: "Team",
+                component: About
+            },
+            {
+                path: "/blogs",
+                name: "Blog",
+                component: Blog
+            },
         ]
     }
-    // { path: "*", component: NotFound }
 ];
 const userRoutes = [];
 const router = new VueRouter({routes, userRoutes}); //global token check for authorization [mode: 'history',]add this to remo hashtag mode

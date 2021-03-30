@@ -5,11 +5,11 @@
             <v-row justify="center">
                 <v-col cols="6" style="margin-top:15%" align="center">
                     <v-card rounded width="400">
-                        <div style="width:100%;background-color:green" class="text-center pa-2 white--text mb-5">Welcome Admin</div>
+                        <div style="width:100%;background-color:#BE9F50" class="text-center pa-2 white--text mb-5">Welcome Admin</div>
                         <v-form v-model="valid" ref="form">
-                            <v-text-field v-model="username" :error-messages="loginError" outlined label="Enter email" dense prepend-inner-icon="mdi-shield-account" class="mx-5" :rules="[validRules.required]"></v-text-field>
+                            <v-text-field v-model="username" :error-messages="loginError" outlined label="Enter username" dense prepend-inner-icon="mdi-shield-account" class="mx-5" :rules="[validRules.required]"></v-text-field>
                             <v-text-field v-model="password" type="password" dense outlined label="Password" prepend-inner-icon="mdi-shield-lock" class="mx-5" :rules="[validRules.required]"></v-text-field>
-                            <v-btn class="mb-5 mx-auto" @click="login">Login</v-btn>
+                            <v-btn class="mb-5 mx-auto mbtn" outlined rounded @click="login">Login</v-btn>
                         </v-form>
 
                     </v-card>

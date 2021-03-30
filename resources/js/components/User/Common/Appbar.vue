@@ -1,15 +1,15 @@
 <template>
 <div>
-    <v-app-bar flat prominent absolute color="transparent">
-        <v-img src="../images/logo.png" max-width="120"></v-img>
+    <v-app-bar flat color="white" height="80">
+        <v-img src="../images/logo.png" max-width="75" class="my-2"></v-img>
         <v-spacer></v-spacer>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Home</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>About Us</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Projects</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Causes</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Team</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Stories</v-btn>
-        <v-btn text dark class="text-capitalize font-weight-bold" x-large>Donate</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/home">Home</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/about-us">About Us</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/projects">Projects</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/about-us)">Team</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/blogs">Blogs</v-btn>
+        <v-btn text light color="sec" class="text-capitalize" x-large to="/contact-us">Contact</v-btn>
+        <v-btn dark color="sec" class="text-capitalize" x-large flat tile>Donate</v-btn>
     </v-app-bar>
 
 </div>
