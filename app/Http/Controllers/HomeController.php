@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Messages;
+use App\Models\Project;
+use App\Models\Slider;
+use App\Models\Story;
+use App\Models\Subscriber;
 
 class HomeController extends Controller
 {
@@ -15,4 +19,28 @@ class HomeController extends Controller
         $message->message=$request->message;
         $message->save();
     }
+    public function getSliders()
+    {
+        $slide=Slider::all();
+        return response()->json($slide);
+    }
+    public function getRecentProjects()
+    {
+        $project=Project::where('status','Finished')->get();
+        return response()->json($project);
+    }
+    public function subscribe(Request $request)
+    {
+        $subscribe=new Subscriber;
+        $subscribe->email=$request->email;
+        $subscribe->save();
+    }
+    
+        public function myBlogs(Request $request){
+            $items=$request->per_page;
+            $blogs=Story::paginate(8);
+            return response()->json($blogs);
+            
+        }
+    
 }

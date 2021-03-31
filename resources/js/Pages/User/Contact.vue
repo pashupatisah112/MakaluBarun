@@ -47,7 +47,7 @@
                 </v-card>
             </v-col>
         </v-row>
-        <v-row>
+        <v-row class="my-5">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.5139086348054!2d85.31101251506196!3d27.701414882794214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1854cf6d91cf%3A0x652a2bcfde000123!2sKathmandu%20Mall!5e0!3m2!1sen!2snp!4v1617127704967!5m2!1sen!2snp" style="width:100%;border:0;height:400px" allowfullscreen="" loading="lazy"></iframe>
         </v-row>
     </v-container>

@@ -71,7 +71,7 @@
                 </v-tab-item>
             </v-tabs>
         </v-row>
-        <v-row justify="center">
+        <v-row justify="center" class="mt-16">
             <p class="text-h5">Our Team</p>
             
         </v-row>

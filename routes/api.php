@@ -57,6 +57,10 @@ Route::group(['middleware'=>['auth:api'],'namespace'=>'Admin'],function(){
 
 });
 Route::post('recordMessage',[\App\Http\Controllers\HomeController::class,'recordMessage']);
+Route::get('getSliders',[\App\Http\Controllers\HomeController::class,'getSliders']);
+Route::get('getRecentProjects',[\App\Http\Controllers\HomeController::class,'getRecentProjects']);
+Route::post('subscribe',[\App\Http\Controllers\HomeController::class,'subscribe']);
+Route::post('myBlogs',[\App\Http\Controllers\HomeController::class,'myBlogs']);
 
 Route::post('adminLogin',[AuthController::class,'adminLogin']);
 
