@@ -20,6 +20,8 @@ import About from './Pages/User/About';
 import Project from './Pages/User/Projects';
 import Blog from './Pages/User/BlogList';
 import Contact from './Pages/User/Contact';
+import BlogDetail from './Pages/User/BlogDetail';
+import ProjectDetail from './Pages/User/ProjectDetail';
 
 const routes = [
     {
@@ -106,6 +108,16 @@ const routes = [
                 path: "/blogs",
                 name: "Blog",
                 component: Blog
+            },
+            {
+                path: "/blog/:id/:title",
+                name: "Blog-Detail",
+                component: BlogDetail
+            },
+            {
+                path: "/project/:id/:title",
+                name: "Project-Detail",
+                component: ProjectDetail
             },
         ]
     }

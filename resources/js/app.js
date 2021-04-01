@@ -6,15 +6,23 @@ import App from './Pages/App'
 import vuetify from "./vuetify";
 import router from "./router";
 import style from "../css/style.css";
- 
+import 'froala-editor/css/froala_editor.pkgd.min.css' // all styles (also for buttons)
+import 'froala-editor/js/plugins.pkgd.min' // all plugins (you can add plugins by one too)
+// Import and use Vue Froala lib.
+import VueFroala from 'vue-froala-wysiwyg'
+Vue.use(VueFroala)
+
+Vue.use(require('vue-moment'));
+
+import VueSocialSharing from 'vue-social-sharing'
+
+Vue.use(VueSocialSharing);
 
 new Vue({
     el: "#app",
-    //i18n,
     router,
     vuetify,
     style,
-    //store,
     components: {
         app: App
     }

@@ -1,6 +1,7 @@
 <template>
 <v-container fluid>
     <!--stories list-->
+
     <v-data-table :headers="headers" :items="stories.data" class="elevation-1" :footer-props="{ itemsPerPageOptions: [5, 10, 15],itemsPerPageText:'stories per page' }" :server-items-length="stories.total" :loading="loading" loading-text="Loading.....Please wait." @pagination="paginate" item-key="id">
         <template v-slot:top>
             <v-toolbar flat color="white">
@@ -24,14 +25,22 @@
                                 <v-form ref="form" v-model="valid">
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-text-field v-model="editedItem.title" outlined label="story Title" dense :rules="[
+                                            <v-text-field v-model="editedItem.title" outlined label="Blog title" dense :rules="[
                                                         validRules.required
                                                     ]"></v-text-field>
                                         </v-col>
                                     </v-row>
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-textarea v-model="editedItem.detail" outlined auto-grow label="Details of your story" :rules="[validRules.required]"></v-textarea>
+                                            <v-text-field v-model="editedItem.author" outlined label="Blog author" dense :rules="[
+                                                        validRules.required
+                                                    ]"></v-text-field>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row class="mt-n5">
+                                        <v-col cols="12" align="center">
+                                            <froala v-model="editedItem.detail"  :tag="'textarea'" :config="config"></froala>
+                                            <div style="color:red">{{detailError}}</div>
                                         </v-col>
                                     </v-row>
 
@@ -132,7 +141,7 @@
     <!--end snackbar-->
 
     <!--product view dialog-->
-    <v-dialog max-width="600" persistent v-model="productViewDialog">
+    <v-dialog max-width="900" persistent v-model="productViewDialog">
         <v-card>
             <v-btn icon @click="productViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -141,8 +150,7 @@
             <v-container fluid>
                 <v-row>
                     <v-col cols="12">
-                        <p class="text-h5">Title: {{ selected.title }}</p>
-                        <p class="body-2">{{selected.detail }}</p>
+                        <div v-html="selected.detail"></div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -151,7 +159,7 @@
     <!--end product view dialog-->
 
     <!--image view button-->
-    <v-dialog v-model="imageViewDialog" max-width="800px" persistent>
+    <v-dialog v-model="imageViewDialog" max-width="900" persistent>
         <v-card>
             <v-btn icon @click="imageViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -163,7 +171,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center">
                         <div v-if="selected.image">
-                            <v-img :src="getImage(selected)" alt="image"></v-img>
+                            <v-img :src="getImage(selected)" max-width="900" height="400" alt="image"></v-img>
                         </div>
 
                         <div>
@@ -193,7 +201,11 @@
 </template>
 
 <script>
+import VueFroala from 'vue-froala-wysiwyg';
 export default {
+    components: {
+
+    },
     data() {
         return {
             //datatable data loading
@@ -205,6 +217,57 @@ export default {
             validRules: {
                 required: value => !!value || "Required.",
             },
+            detailError:'',
+            config: {
+                language: "en", // localization
+                placeholderText: "Share what you've g",
+                zIndex: 2501,
+                charCounterMax: 5000,
+                toolbarSticky: false,
+                quickInsertEnabled: false,
+                heightMin: 200,
+
+                toolbarButtons: {
+                    // name for block of buttons
+
+                    moreParagraph: {
+                        buttons: [
+                            "paragraphFormat",
+                            "formatOLSimple",
+                            "formatUL",
+                            "alignLeft",
+                            "alignCenter",
+                            "alignRight",
+                            "alignJustify",
+                        ],
+                        align: "left",
+                        buttonsVisible: 7
+                    },
+                    moreText: {
+                        // buttons you need on this block
+                        buttons: [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "textColor",
+                            "inlineClass",
+                            "backgroundColor",
+                        ],
+                        align: "left",
+                        buttonsVisible: 7
+                    },
+                    moreRich: {
+                        buttons: [
+                            "insertLink",
+                        ],
+                        align: "left",
+                        buttonsVisible: 1
+                    },
+                },
+               
+            },
+
+            model: "Edit Your Content Here!",
 
             //deleting
             deleteDialog: false,
@@ -236,6 +299,10 @@ export default {
                     text: "Title",
                     value: "title"
                 },
+                 {
+                    text: "Author",
+                    value: "author"
+                },
                 {
                     text: "Created Date",
                     value: "created_at"
@@ -251,18 +318,19 @@ export default {
             editedItem: {
                 id: "",
                 title: "",
+                author:"",
                 created_date: "",
                 detail: "",
             },
             defaultItem: {
                 id: "",
                 title: "",
+                author:"",
                 created_date: "",
                 detail: "",
             }
         };
     },
-
     computed: {
         formTitle() {
             return this.editedIndex === -1 ? "New Blog" : "Edit Blog";
@@ -315,10 +383,14 @@ export default {
 
         save() {
             if (this.$refs.form.validate()) {
-                if (this.editedIndex > -1) {
+                if(this.editedItem.detail==''){
+                    this.detailError='No content to post'
+                }else{
+                    if (this.editedIndex > -1) {
                     axios
                         .put("/api/stories/" + this.editedItem.id, {
                             'title': this.editedItem.title,
+                            'author':this.editedItem.author,
                             'detail': this.editedItem.detail,
                             'created_at': new Date()
                         })
@@ -338,6 +410,7 @@ export default {
                     axios
                         .post("/api/stories", {
                             'title': this.editedItem.title,
+                            'author':this.editedItem.author,
                             'detail': this.editedItem.detail,
                             'created_at': new Date()
                         })
@@ -352,6 +425,8 @@ export default {
                             console.log(err.response);
                         });
                 }
+                }
+                
             }
         },
 

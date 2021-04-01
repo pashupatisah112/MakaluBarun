@@ -121,7 +121,7 @@
     <!--end snackbar-->
 
     <!--image view button-->
-    <v-dialog v-model="imageViewDialog" max-width="800px" persistent>
+    <v-dialog v-model="imageViewDialog" max-width="900" persistent>
         <v-card>
             <v-btn icon @click="imageViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -133,7 +133,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center">
                         <div v-if="selected.image">
-                            <v-img :src="getImage(selected)" alt="image"></v-img>
+                            <v-img :src="getImage(selected)" max-width="900" height="400" alt="image"></v-img>
                         </div>
 
                         <div>

@@ -1,14 +1,18 @@
 <template>
 <div>
-    <v-app-bar flat color="white" height="80">
+    <v-app-bar  color="white" height="80" fixed app>
         <v-img src="../images/logo.png" max-width="75" class="my-2"></v-img>
+        <p class="text-h6 ml-5 mb-n3 sec-text">Makalu Arun Valley Welfare</p>
         <v-spacer></v-spacer>
-        <v-btn text light color="sec" class="text-capitalize" x-large to="/home">Home</v-btn>
-        <v-btn text light color="sec" class="text-capitalize" x-large to="/about-us">About Us</v-btn>
-        <v-btn text light color="sec" class="text-capitalize" x-large to="/projects">Projects</v-btn>
-        <v-btn text light color="sec" class="text-capitalize" x-large to="/blogs">Blogs</v-btn>
-        <v-btn text light color="sec" class="text-capitalize" x-large to="/contact-us">Contact</v-btn>
-        <v-btn dark color="sec" class="text-capitalize" x-large tile @click="donateDialog=true">Donate</v-btn>
+        <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/home">Home</v-btn>
+        <v-btn text light rounded  color="sec" class="text-capitalize mx-1" x-large to="/about-us">About Us</v-btn>
+        <v-btn text light rounded  color="sec" class="text-capitalize mx-1" x-large to="/projects">Projects</v-btn>
+        <v-btn text light rounded  color="sec" class="text-capitalize mx-1" x-large to="/blogs">Blogs</v-btn>
+        <v-btn text light rounded  color="sec" class="text-capitalize mx-1" x-large to="/contact-us">Contact</v-btn>
+        <v-btn dark rounded  color="sec" class="text-capitalize mx-1" x-large @click="donateDialog=true">
+            <v-icon>mdi-currency-usd</v-icon>
+            Donate
+        </v-btn>
     </v-app-bar>
 
     <v-dialog v-model="donateDialog" max-width="500">

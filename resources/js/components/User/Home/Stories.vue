@@ -8,24 +8,21 @@
             </v-col>
         </v-row>
         <v-row class="mt-n10">
-            <v-col cols="12" lg="4" md="4" v-for="(item,i) in 3" :key="i">
+            <v-col cols="12" lg="4" md="4" v-for="item in blogs" :key="item.id">
                 <v-card class="mx-auto my-12" max-width="374" flat>
 
-                    <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" class="rounded-lg"></v-img>
+                    <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
 
-                    <v-card-title>Lorem ipsum</v-card-title>
+                    <v-card-title @click="goToDetails(item)" style="cursor:pointer">{{item.title}}</v-card-title>
                     <v-card-text>
                         <v-row class="px-3">
-                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-calendar</v-icon>12 November 2018</p>
+                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-calendar</v-icon>{{ item.created_at | moment("dddd, MMMM Do YYYY") }}</p>
                             <v-spacer></v-spacer>
-                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-account</v-icon>Author: Thilen Sherpa</p>
+                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-account</v-icon>Author: {{item.author}}</p>
                         </v-row>
 
                     </v-card-text>
 
-                    <v-card-text>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                    </v-card-text>
                 </v-card>
             </v-col>
         </v-row>
@@ -37,8 +34,29 @@
 export default {
     data() {
         return {
-
+            blogs:''
         }
+    },
+    mounted(){
+       this.getRecentBlogs()
+    },
+    methods:{
+        getRecentBlogs(){
+            axios.get('api/getRecentBlogs')
+            .then(res=>{
+                console.log(this.blogs)
+                this.blogs=res.data
+            }).catch(err=>console.log(err.response))
+        },
+        getImage(item){
+            return "../storage/"+item.image
+        },
+       goToDetails(item){
+           this.$router.push({
+               name:'Blog-Detail',
+               params:{'id':item.id,'title':item.title}
+           })
+       }
     }
 }
 </script>

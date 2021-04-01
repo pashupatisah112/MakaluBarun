@@ -3,34 +3,35 @@
     <v-container>
         <v-row justify="center">
             <v-col cols="6" align="center">
-                <p class="text-h5 font-weight-bold">Upcoming Projects</p>
+                <p class="text-h5 font-weight-bold">Our Projects</p>
             </v-col>
         </v-row>
-        <v-row>
-            <v-col cols="12" lg="6" md="6" v-for="(item,i) in 4" :key="i">
+        <v-row v-if="projects">
+            <v-col cols="12" lg="6" md="6" v-for="item in projects" :key="item.id">
                 <v-container fluid>
                     <v-row justify="center">
                         <v-col cols="6">
-                            <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" class="rounded-lg"></v-img>
+                            <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
                         </v-col>
                         <v-col cols="6">
-                            <v-card class="mx-auto" max-width="374" flat>
-                                <v-card-title>Lorem ipsum dolor</v-card-title>
+                            <v-card max-width="374" class=" mx-auto overflow-hidden" flat>
+                                <v-chip x-small dark class="ml-4">{{item.status}}</v-chip>
+                                <v-card-title @click="goToDetail(item)" style="cursor:pointer" class="mt-n4">{{item.title}}</v-card-title>
                                 <v-card-subtitle class="mt-n6">
                                     <v-row class="px-3">
                                         <v-icon small>mdi-clock</v-icon>
-                                        <p class="caption mt-4">24 October,2018 </p>
+                                        <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
                                     </v-row>
                                 </v-card-subtitle>
                                 <v-card-subtitle class="mt-n8">
                                     <v-row class="px-3">
                                         <v-icon small>mdi-map-marker</v-icon>
-                                        <p class="caption mt-4">2736 Hinkle Deegan Lake Road</p>
+                                        <p class="caption mt-4 ml-1">{{item.location}}</p>
                                     </v-row>
                                 </v-card-subtitle>
 
-                                <v-card-text>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                <v-card-text class="mt-n3">
+                                    <div>{{item.intro}}</div>
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -39,102 +40,42 @@
 
             </v-col>
         </v-row>
-        <v-row justify="center" class="mt-10">
-            <v-col cols="6" align="center">
-                <p class="text-h5 font-weight-bold">Ongoing Projects</p>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="12" lg="6" md="6" v-for="(item,i) in 4" :key="i">
-                <v-container fluid>
-                    <v-row justify="center">
-                        <v-col cols="6">
-                            <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" class="rounded-lg"></v-img>
-                        </v-col>
-                        <v-col cols="6">
-                            <v-card class="mx-auto" max-width="374" flat>
-                                <v-card-title>Lorem ipsum dolor</v-card-title>
-                                <v-card-subtitle class="mt-n6">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-clock</v-icon>
-                                        <p class="caption mt-4">24 October,2018 </p>
-                                    </v-row>
-                                </v-card-subtitle>
-                                <v-card-subtitle class="mt-n8">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-map-marker</v-icon>
-                                        <p class="caption mt-4">2736 Hinkle Deegan Lake Road</p>
-                                    </v-row>
-                                </v-card-subtitle>
-
-                                <v-card-text>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                </v-card-text>
-                            </v-card>
-                        </v-col>
-                    </v-row>
-                </v-container>
-
-            </v-col>
-        </v-row>
-        <v-row justify="center"  class="mt-10">
-            <v-col cols="6" align="center">
-                <p class="text-h5 font-weight-bold">Finished Projects</p>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="12" lg="6" md="6" v-for="(item,i) in 4" :key="i">
-                <v-container fluid>
-                    <v-row justify="center">
-                        <v-col cols="6">
-                            <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" class="rounded-lg"></v-img>
-                        </v-col>
-                        <v-col cols="6">
-                            <v-card class="mx-auto" max-width="374" flat>
-                                <v-card-title>Lorem ipsum dolor</v-card-title>
-                                <v-card-subtitle class="mt-n6">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-clock</v-icon>
-                                        <p class="caption mt-4">24 October,2018 </p>
-                                    </v-row>
-                                </v-card-subtitle>
-                                <v-card-subtitle class="mt-n8">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-map-marker</v-icon>
-                                        <p class="caption mt-4">2736 Hinkle Deegan Lake Road</p>
-                                    </v-row>
-                                </v-card-subtitle>
-
-                                <v-card-text>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                </v-card-text>
-                            </v-card>
-                        </v-col>
-                    </v-row>
-                </v-container>
-
-            </v-col>
+        <v-row v-else justify="center">
+            <breeding-rhombus-spinner :animation-duration="2000" :size="65" color="#8E5324" />
         </v-row>
     </v-container>
 </div>
 </template>
 
 <script>
+import {
+    BreedingRhombusSpinner
+} from 'epic-spinners'
 export default {
+    components:{BreedingRhombusSpinner},
     data() {
         return {
-            recent:[]
+            projects:[]
         }
     },
     mounted(){
-        this.getRecentProjects()
+        this.getProjects()
     },
     methods:{
-        getRecentProjects(){
-             axios.get('api/getRecentProjects')
+        getProjects(){
+             axios.get('api/getProjects')
              .then(res=>{
-                 this.recent=res.data
+                 this.projects=res.data
              }).catch(err=>console.log(err.response))
+        },
+        getImage(item){
+            return "../storage/"+item.image
+        },
+        goToDetail(item){
+            this.$router.push({
+                name:'Project-Detail',
+                params:{'id':item.id,'title':item.title}
+            })
         }
     }
 }

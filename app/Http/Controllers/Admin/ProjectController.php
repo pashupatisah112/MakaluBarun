@@ -23,6 +23,7 @@ class ProjectController extends Controller
          $project->ended_date=$request->ended_date;
          $project->status=$request->status;
          $project->location=$request->location;
+         $project->intro=$request->intro;
          $project->detail=$request->detail;
          $project->save();
          return response()->json($project);
@@ -36,6 +37,7 @@ class ProjectController extends Controller
         $project->ended_date=$request->ended_date;
         $project->status=$request->status;
         $project->location=$request->location;
+        $project->intro=$request->intro;
         $project->detail=$request->detail;
         $project->save();
         return response()->json($project);

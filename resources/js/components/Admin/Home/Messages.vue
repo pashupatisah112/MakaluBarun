@@ -74,8 +74,8 @@
             <v-container fluid>
                 <v-row>
                     <v-col cols="12">
-                        <p class="text-h5">Name: {{ selected.name }}</p>
-                        <p class="body-2">{{selected.message }}</p>
+                        <p class="text-h5"><b>Name:</b> {{ selected.name }}</p>
+                        <p class="body-2"><b>Message:</b> {{selected.message }}</p>
                     </v-col>
                 </v-row>
             </v-container>

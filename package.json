@@ -28,7 +28,10 @@
     },
     "dependencies": {
         "epic-spinners": "^1.1.0",
+        "vue-froala-wysiwyg": "^3.2.6-1",
+        "vue-moment": "^4.1.0",
         "vue-router": "^3.5.1",
+        "vue-social-sharing": "^3.0.7",
         "vuetify": "^2.4.8"
     }
 }

@@ -177,12 +177,11 @@
             <v-container fluid>
                 <v-row>
                     <v-col cols="12">
-                        <p class="text-h5">Title: {{ selected.fname }}</p>
-                        <p class="body-2">{{selected.lname }}</p>
-                        <p class="body-2">{{selected.position }}</p>
-                        <p class="body-2">{{selected.phone }}</p>
-                        <p class="body-2">{{selected.email }}</p>
-                        <p class="body-2">{{selected.detail }}</p>
+                        <p class="text-h5"><b>Name:</b> {{ selected.fname +' '}}{{selected.lname}}</p>
+                        <p class="body-2"><b>Position:</b> {{selected.position }}</p>
+                        <p class="body-2"><b>Phone:</b> {{selected.phone }}</p>
+                        <p class="body-2"><b>Email:</b> {{selected.email }}</p>
+                        <p class="body-2"><b>Detail:</b> {{selected.about }}</p>
                     </v-col>
                 </v-row>
             </v-container>
@@ -191,7 +190,7 @@
     <!--end product view dialog-->
 
     <!--image view button-->
-    <v-dialog v-model="imageViewDialog" max-width="800px" persistent>
+    <v-dialog v-model="imageViewDialog" max-width="900" persistent>
         <v-card>
             <v-btn icon @click="imageViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -203,7 +202,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center">
                         <div v-if="selected.image">
-                            <v-img :src="getImage(selected)" alt="image"></v-img>
+                            <v-img :src="getImage(selected)" max-width="900" height="400" alt="image"></v-img>
                         </div>
 
                         <div>

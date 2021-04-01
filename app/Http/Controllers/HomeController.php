@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Story;
 use App\Models\Subscriber;
+use App\Models\Team;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,23 @@ class HomeController extends Controller
     }
     public function getRecentProjects()
     {
-        $project=Project::where('status','Finished')->get();
+        $project=Project::where('status','Finished')->take(4)->get();
         return response()->json($project);
+    }
+    public function getProjectDetail(Request $request)
+    {
+        $project=Project::where('id',$request->id)->first();
+        return response()->json($project);
+    }
+    public function getRecentBlogs()
+    {
+        $story=Story::take(3)->get();
+        return response()->json($story);
+    }
+    public function getBlogDetails(Request $request)
+    {
+        $story=Story::where('id',$request->id)->first();
+        return response()->json($story);
     }
     public function subscribe(Request $request)
     {
@@ -41,6 +57,16 @@ class HomeController extends Controller
             $blogs=Story::paginate(8);
             return response()->json($blogs);
             
+        }
+        public function getProjects()
+        {
+            $project=Project::all();
+            return response()->json($project);
+        }
+        public function getTeams()
+        {
+            $team=Team::all();
+            return response()->json($team);
         }
     
 }

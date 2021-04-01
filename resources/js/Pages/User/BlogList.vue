@@ -8,28 +8,21 @@
             </v-col>
         </v-row>
         <v-row v-if="blogs.data">
-            <v-col cols="12" lg="4" md="4" v-for="(item,i) in 9" :key="i">
-                <v-card class="mx-auto my-12" max-width="374" flat>
+            <v-col cols="12" lg="4" md="4" v-for="item in blogs.data" :key="item.id">
+                <v-card class="mx-auto mb-12" max-width="374" flat>
 
-                    <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" class="rounded-lg"></v-img>
+                    <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
 
-                    <v-card-title>Cafe Badilico</v-card-title>
+                    <v-card-title @click="goToDetails(item)" style="cursor:pointer">{{item.title}}</v-card-title>
                     <v-card-text>
                         <v-row class="px-3">
-                            <p class="caption mb-0">
-                                <v-icon small class="mt-n1">mdi-calendar</v-icon>12 November 2018
-                            </p>
+                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-calendar</v-icon>{{ item.created_at | moment("dddd, MMMM Do YYYY") }}</p>
                             <v-spacer></v-spacer>
-                            <p class="caption mb-0">
-                                <v-icon small class="mt-n1">mdi-account</v-icon>Author: Thilen Sherpa
-                            </p>
+                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-account</v-icon>Author: {{item.author}}</p>
                         </v-row>
 
                     </v-card-text>
 
-                    <v-card-text>
-                        <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-                    </v-card-text>
                 </v-card>
             </v-col>
             <v-col cols="12" align="center">
@@ -74,6 +67,15 @@ export default {
             this.page = e;
             this.getCollection();
         },
+        getImage(item){
+            return "../storage/"+item.image
+        },
+       goToDetails(item){
+           this.$router.push({
+               name:'Blog-Detail',
+               params:{'id':item.id,'title':item.title}
+           })
+       },
         next(e) {
             axios
                 .get(this.blogs.next_page_url)

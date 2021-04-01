@@ -19,7 +19,7 @@ class StoryController extends Controller
     {
          $story=new Story;
          $story->title=$request->title;
-         $story->created_at=$request->created_at;
+         $story->author=$request->author;
          $story->detail=$request->detail;
          $story->save();
          return response()->json($story);
@@ -29,6 +29,7 @@ class StoryController extends Controller
     {
         $story=Story::find($id);
         $story->title=$request->title;
+        $story->author=$request->author;
          $story->created_at=$request->created_at;
          $story->detail=$request->detail;
         $story->save();

@@ -60,7 +60,14 @@
                                     </v-row>
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-textarea v-model="editedItem.detail" outlined auto-grow label="Details of your project" :rules="[validRules.required]"></v-textarea>
+                                            <v-textarea v-model="editedItem.intro" label="Short introduction to project" rows="2" :rules="[validRules.required]"></v-textarea>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row>
+                                        <v-col cols="12" align="center">
+                                            <froala v-model="editedItem.detail" :tag="'textarea'" :config="config"></froala>
+                                            <div style="color:red">{{detailError}}</div>
+
                                         </v-col>
                                     </v-row>
 
@@ -193,8 +200,8 @@
     </v-dialog>
     <!-- end status change dialog -->
 
-     <!--product view dialog-->
-    <v-dialog max-width="600" persistent v-model="productViewDialog">
+    <!--product view dialog-->
+    <v-dialog max-width="900" persistent v-model="productViewDialog">
         <v-card>
             <v-btn icon @click="productViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -203,12 +210,7 @@
             <v-container fluid>
                 <v-row>
                     <v-col cols="12">
-                        <p class="text-h5">Title: {{ selected.title }}</p>
-                        <p class="body-2">{{selected.start_date }}</p>
-                        <p class="body-2">{{selected.ended_date }}</p>
-                        <p class="body-2">{{selected.location }}</p>
-                        <p class="body-2">{{selected.status }}</p>
-                        <p class="body-2">{{selected.detail }}</p>
+                        <div v-html="selected.detail">{{selected.detail }}</div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -217,7 +219,7 @@
     <!--end product view dialog-->
 
     <!--image view button-->
-    <v-dialog v-model="imageViewDialog" max-width="800px" persistent>
+    <v-dialog v-model="imageViewDialog" max-width="900px" persistent>
         <v-card>
             <v-btn icon @click="imageViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
@@ -229,7 +231,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center">
                         <div v-if="selected.image">
-                            <v-img :src="getImage(selected)" alt="image"></v-img>
+                            <v-img :src="getImage(selected)" max-width="900" height="400" alt="image"></v-img>
                         </div>
 
                         <div>
@@ -240,14 +242,14 @@
                                 <input ref="uploader" class="d-none" type="file" accept="image/*" @change="changeImage" />
                                 <p>Change image</p>
                             </div>
-                            <div  v-else>
+                            <div v-else>
                                 <v-btn icon outlined x-large @click="onButtonClick" :loading="isSelecting" class="mt-2">
                                     <v-icon>mdi-image-plus</v-icon>
                                 </v-btn>
                                 <input ref="uploader" class="d-none" type="file" accept="image/*" @change="onFileChanged" />
                                 <p>Add image</p>
                             </div>
-                            
+
                         </div>
                     </v-col>
                 </v-row>
@@ -259,6 +261,8 @@
 </template>
 
 <script>
+import VueFroala from 'vue-froala-wysiwyg';
+
 export default {
     data() {
         return {
@@ -274,6 +278,7 @@ export default {
             validRules: {
                 required: value => !!value || "Required.",
             },
+            detailError: '',
             status: [{
                     title: 'Finished'
                 },
@@ -284,24 +289,72 @@ export default {
                     title: 'Upcoming'
                 },
             ],
+            config: {
+                language: "en", // localization
+                placeholderText: "Share what you've g",
+                zIndex: 2501,
+                charCounterMax: 5000,
+                toolbarSticky: false,
+                quickInsertEnabled: false,
+                heightMin: 200,
+
+                toolbarButtons: {
+                    // name for block of buttons
+
+                    moreParagraph: {
+                        buttons: [
+                            "paragraphFormat",
+                            "formatOLSimple",
+                            "formatUL",
+                            "alignLeft",
+                            "alignCenter",
+                            "alignRight",
+                            "alignJustify",
+                        ],
+                        align: "left",
+                        buttonsVisible: 7
+                    },
+                    moreText: {
+                        // buttons you need on this block
+                        buttons: [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "textColor",
+                            "inlineClass",
+                            "backgroundColor",
+                        ],
+                        align: "left",
+                        buttonsVisible: 7
+                    },
+                    moreRich: {
+                        buttons: [
+                            "insertLink",
+                        ],
+                        align: "left",
+                        buttonsVisible: 1
+                    },
+                },
+
+            },
 
             //deleting
             deleteDialog: false,
 
             //status change
-            statusChangeDialog:false,
-            project_status:'',
-            selected:'',
+            statusChangeDialog: false,
+            project_status: '',
+            selected: '',
 
             //project view
-            productViewDialog:false,
+            productViewDialog: false,
 
             //image view
-            imageViewDialog:false,
+            imageViewDialog: false,
 
-             //image upload
+            //image upload
             isSelecting: false,
-            selectedFile:'',
+            selectedFile: '',
 
             //snackbar
             alertColor: 'success',
@@ -350,6 +403,7 @@ export default {
                 ended_date: "",
                 location: "",
                 status: "",
+                intro:"",
                 detail: "",
             },
             defaultItem: {
@@ -358,6 +412,7 @@ export default {
                 start_date: "",
                 ended_date: "",
                 location: "",
+                intro:"",
                 status: "",
                 detail: "",
             }
@@ -410,12 +465,12 @@ export default {
             const index = this.projects.data.indexOf(item);
             axios
                 .delete("/api/projects/" + item.id)
-                .then(res=>{
-                        this.projects.data.splice(index,1)
-                        this.deleteDialog = false
-                        this.dataUpdateMsg = "Project deleted successfully"
-                        this.dataUpdateAlert = true
-                    })
+                .then(res => {
+                    this.projects.data.splice(index, 1)
+                    this.deleteDialog = false
+                    this.dataUpdateMsg = "Project deleted successfully"
+                    this.dataUpdateAlert = true
+                })
 
         },
 
@@ -429,77 +484,84 @@ export default {
 
         save() {
             if (this.$refs.form.validate()) {
-                if (this.editedIndex > -1) {
-                    axios
-                        .put("/api/projects/" + this.editedItem.id, {
-                            'title': this.editedItem.title,
-                            'start_date': this.editedItem.start_date,
-                            'ended_date': this.editedItem.ended_date,
-                            'location': this.editedItem.location,
-                            'status': this.editedItem.status,
-                            'detail': this.editedItem.detail,
-                        })
-                        .then(res => {
-                            this.projects.data.splice(this.projects.data.indexOf(this.selectedItem), 1, res.data)
-                            this.close();
-                            this.$refs.form.reset();
-                            this.dataUpdateMsg = "Project updated successfully.";
-                            this.dataUpdateAlert = true;
-
-                        })
-                        .catch(err => {
-                            console.log(err.response);
-                        });
+                if (this.editedItem.detail == '') {
+                    this.detailError = 'No content to post.'
                 } else {
-                    console.log(this.editedItem.start_date)
+                    if (this.editedIndex > -1) {
+                        axios
+                            .put("/api/projects/" + this.editedItem.id, {
+                                'title': this.editedItem.title,
+                                'start_date': this.editedItem.start_date,
+                                'ended_date': this.editedItem.ended_date,
+                                'location': this.editedItem.location,
+                                'intro':this.editedItem.intro,
+                                'status': this.editedItem.status,
+                                'detail': this.editedItem.detail,
+                            })
+                            .then(res => {
+                                this.projects.data.splice(this.projects.data.indexOf(this.selectedItem), 1, res.data)
+                                this.close();
+                                this.$refs.form.reset();
+                                this.dataUpdateMsg = "Project updated successfully.";
+                                this.dataUpdateAlert = true;
 
-                    axios
-                        .post("/api/projects", {
-                            'title': this.editedItem.title,
-                            'start_date': this.editedItem.start_date,
-                            'ended_date': this.editedItem.ended_date,
-                            'location': this.editedItem.location,
-                            'status': this.editedItem.status,
-                            'detail': this.editedItem.detail,
-                        })
-                        .then(res => {
-                            this.projects.data.push(res.data)
-                            this.close();
-                            this.dataUpdateMsg = "New project added successfully."
-                            this.dataUpdateAlert = true
-                            this.$refs.form.reset()
-                        })
-                        .catch(err => {
-                            console.log(err.response);
-                        });
+                            })
+                            .catch(err => {
+                                console.log(err.response);
+                            });
+                    } else {
+                        console.log(this.editedItem.start_date)
+
+                        axios
+                            .post("/api/projects", {
+                                'title': this.editedItem.title,
+                                'start_date': this.editedItem.start_date,
+                                'ended_date': this.editedItem.ended_date,
+                                'location': this.editedItem.location,
+                                'intro':this.editedItem.intro,
+                                'status': this.editedItem.status,
+                                'detail': this.editedItem.detail,
+                            })
+                            .then(res => {
+                                this.projects.data.push(res.data)
+                                this.close();
+                                this.dataUpdateMsg = "New project added successfully."
+                                this.dataUpdateAlert = true
+                                this.$refs.form.reset()
+                            })
+                            .catch(err => {
+                                console.log(err.response);
+                            });
+                    }
                 }
+
             }
         },
-        changeStatus(item){
-            this.selected=item
-            this.project_status=item.status
-            this.statusChangeDialog=true
+        changeStatus(item) {
+            this.selected = item
+            this.project_status = item.status
+            this.statusChangeDialog = true
         },
-        changeProjectStatus(){
-            axios.post('api/changeProjectStatus/' + this.selected.id,{
-                'id':this.selected.id,
-                'status':this.project_status
-            }).then(res=>{
-                this.projects.data.splice(this.projects.data.indexOf(this.selected),1,res.data)
-                this.statusChangeDialog=false
-                this.selected=''
-            }).catch(err=>console.lo(err.response))
+        changeProjectStatus() {
+            axios.post('api/changeProjectStatus/' + this.selected.id, {
+                'id': this.selected.id,
+                'status': this.project_status
+            }).then(res => {
+                this.projects.data.splice(this.projects.data.indexOf(this.selected), 1, res.data)
+                this.statusChangeDialog = false
+                this.selected = ''
+            }).catch(err => console.lo(err.response))
         },
-        viewProject(item){
-            this.selected=item
-            this.productViewDialog=true
+        viewProject(item) {
+            this.selected = item
+            this.productViewDialog = true
         },
-        viewImage(item){
-            this.selected=item
-            this.imageViewDialog=true
+        viewImage(item) {
+            this.selected = item
+            this.imageViewDialog = true
         },
-        getImage(selected){
-            return "../storage/"+ selected.image
+        getImage(selected) {
+            return "../storage/" + selected.image
         },
         onButtonClick() {
             this.isSelecting = true;
@@ -514,8 +576,8 @@ export default {
 
             this.$refs.uploader.click();
         },
-         onFileChanged(e) {
-             //console.log(e.target.files[0])
+        onFileChanged(e) {
+            //console.log(e.target.files[0])
             const file = e.target.files[0];
             this.selectedFile = e.target.files[0];
             this.addImage();
@@ -543,7 +605,7 @@ export default {
                     console.log(err.response);
                 });
         },
-        changeImage(e){
+        changeImage(e) {
             const file = e.target.files[0];
             this.selectedFile = e.target.files[0];
 
@@ -569,7 +631,6 @@ export default {
                     console.log(err.response);
                 });
 
-            
         }
     }
 };

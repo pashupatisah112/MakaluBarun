@@ -1,8 +1,8 @@
 <template>
 <div>
     <v-container>
-        <v-row justify="center">
-            <p class="text-h4">Contact Us</p>
+        <v-row justify="center" class="mt-2">
+            <p class="text-h5 font-weight-bold">Contact Us</p>
         </v-row>
         <v-row>
             <v-col cols="12" lg="6" md="6" align="center">
@@ -54,7 +54,7 @@
 
     <!-- snackbar -->
     <v-snackbar v-model="snackbar" timeout="3000" top>
-        Your message has been recorded. Thank you for supporting us.
+        Your message has been recorded.  Thank you for supporting us.
         <template v-slot:action="{ attrs }">
             <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
                 Close
