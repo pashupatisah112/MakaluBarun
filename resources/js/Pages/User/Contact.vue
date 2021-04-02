@@ -2,7 +2,7 @@
 <div>
     <v-container>
         <v-row justify="center" class="mt-2">
-            <p class="text-h5 font-weight-bold">Contact Us</p>
+            <p class="text-h5 text-sm-h6">Contact Us</p>
         </v-row>
         <v-row>
             <v-col cols="12" lg="6" md="6" align="center">
@@ -10,21 +10,21 @@
                     <v-col align="center">
                         <v-icon size="50" color="prime">mdi-map-marker</v-icon>
                         <p class="body-2 prime-text">Address</p>
-                        <p class="body-2">Gokarneshwor-08, Narayantar <br>Kathmandu, Nepal</p>
+                        <p class="body-2">Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal</p>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col align="center">
                         <v-icon size="50" color="prime">mdi-phone</v-icon>
                         <p class="bpdy-2 prime-text">Phone</p>
-                        <p class="body-2">+977 01 4914096</p>
+                        <p class="body-2">+977 9841337185</p>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col align="center">
                         <v-icon size="50" color="prime">mdi-email</v-icon>
                         <p class="bpdy-2 prime-text">Email</p>
-                        <p class="body-2">esmartorder@gmail.com</p>
+                        <p class="body-2">info@mavwelfare.com</p>
                     </v-col>
                 </v-row>
             </v-col>
@@ -47,8 +47,8 @@
                 </v-card>
             </v-col>
         </v-row>
-        <v-row class="my-5">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.5139086348054!2d85.31101251506196!3d27.701414882794214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1854cf6d91cf%3A0x652a2bcfde000123!2sKathmandu%20Mall!5e0!3m2!1sen!2snp!4v1617127704967!5m2!1sen!2snp" style="width:100%;border:0;height:400px" allowfullscreen="" loading="lazy"></iframe>
+        <v-row class="ma-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.6685193409926!2d85.31493271463867!3d27.727519182783645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb196af4434ba9%3A0xb2cf28a972c0b440!2sMakalu%20Arun%20Valley%20Social%20Welfare!5e0!3m2!1sen!2snp!4v1617319971613!5m2!1sen!2snp"  style="width:100%;border:0;height:400px" allowfullscreen="" loading="lazy"></iframe>
         </v-row>
     </v-container>
 

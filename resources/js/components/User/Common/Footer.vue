@@ -4,17 +4,17 @@
         <v-row>
             <v-col cols="12" lg="3" md="6">
                 <v-card flat dark color="transparent">
-                    <v-card-title class="text-white">MAKALU ARUN</v-card-title>
+                    <v-card-title class="text-white">MAKALU ARUN VALLEY</v-card-title>
 
                     <v-card-subtitle>
-                        A small river named duden flows by their place and supplies it with with necessary elements.
+                        An Organization that believes in hope of better mankind and services.
                     </v-card-subtitle>
                     <v-card-actions>
-                        <v-btn fab small>
-                            <v-icon>mdi-twitter</v-icon>
+                        <v-btn fab small href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank">
+                            <v-icon>mdi-facebook</v-icon>
                         </v-btn>
                         <v-btn fab small>
-                            <v-icon>mdi-facebook</v-icon>
+                            <v-icon>mdi-twitter</v-icon>
                         </v-btn>
                         <v-btn fab small>
                             <v-icon>mdi-instagram</v-icon>
@@ -55,7 +55,7 @@
             <v-col cols="12" lg="6" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title>Newletters</v-card-title>
-                    <v-card-subtitle>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</v-card-subtitle>
+                    <v-card-subtitle>Send us your email to get news about events and campaign.</v-card-subtitle>
                 </v-card>
                  <v-form v-model="valid" ref="form">
                             <v-text-field v-model="email" dark filled dense placeholder="Enter your email" rounded :rules="[validRules.required,validRules.email]">

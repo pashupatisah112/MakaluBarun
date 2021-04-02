@@ -2,21 +2,22 @@
 <div>
     <v-container>
         <v-row justify="center">
-            <v-col cols="6" align="center">
-                <p class="text-h5 font-weight-bold">Our Projects</p>
+            <v-col cols="12" lg="6" md="8" align="center">
+                <p class="text-h5 text-sm-h6">Our Projects</p>
             </v-col>
         </v-row>
         <v-row v-if="projects">
             <v-col cols="12" lg="6" md="6" v-for="item in projects" :key="item.id">
-                <v-container fluid>
+                <v-container class="elevation-2" style="max-width:374px">
                     <v-row justify="center">
-                        <v-col cols="6">
+                        <v-col cols="12" lg="6" md="12">
                             <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
                         </v-col>
-                        <v-col cols="6">
-                            <v-card max-width="374" class=" mx-auto overflow-hidden" flat>
+                        <v-col cols="12" lg="6" md="12">
+                            <v-hover v-slot="{ hover }" close-delay="200">
+                            <v-card max-width="374" class=" mx-auto overflow-hidden" flat :elevation="hover ? 16 : 0" :class="{ 'on-hover': hover }">
                                 <v-chip x-small dark class="ml-4">{{item.status}}</v-chip>
-                                <v-card-title @click="goToDetail(item)" style="cursor:pointer" class="mt-n4">{{item.title}}</v-card-title>
+                                <v-card-title @click="goToDetail(item)" class="mt-n4 hov">{{item.title}}</v-card-title>
                                 <v-card-subtitle class="mt-n6">
                                     <v-row class="px-3">
                                         <v-icon small>mdi-clock</v-icon>
@@ -34,6 +35,7 @@
                                     <div>{{item.intro}}</div>
                                 </v-card-text>
                             </v-card>
+                            </v-hover>
                         </v-col>
                     </v-row>
                 </v-container>
@@ -80,3 +82,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .hov {
+    cursor: pointer;
+    color: #8E5324;
+}
+
+</style>
+</style>

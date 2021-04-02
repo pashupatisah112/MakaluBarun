@@ -4,9 +4,9 @@
         <!-- short detail -->
         <v-row justify="center">
             <v-col cols="12" lg="8" md="10" align="center">
-                <p class="text-h5 font-weight-bold">About Makalu Arun</p>
+                <p class="text-h5 text-sm-h6">About Makalu Arun</p>
                 <p class="body-2">
-                    Pvt. Ltd. has been established to cater the growing needs in the space of IT Solution Development with special focus on developing and deploying innovative products and services in the field of Process Automation, Digitization, Workflow Automation, Digital Financial Solutions and Insurance Sector.Pvt. Ltd. has been established to cater the growing needs in the space of IT Solution Development with special focus on developing and deploying innovative products and services in the field of Process Automation, Digitization, Workflow Automation, Digital Financial Solutions and Insurance Sector.
+                    Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
                 </p>
             </v-col>
         </v-row>
@@ -77,10 +77,10 @@
         </v-row> -->
         <v-row>
             <v-col cols="12" align="center">
-                <p class="text-h5 font-weight-bold">Our Goals and Objectives</p>
+                <p class="text-h5 text-sm-h6">Our Goals and Objectives</p>
                 <v-row>
-                    <v-col cols="12" lg="4" md="6" v-for="(item,i) in goals" :key="i">
-                        <v-card class="" flat>
+                    <v-col cols="6" lg="4" md="4" v-for="(item,i) in goals" :key="i">
+                        <v-card flat>
                             <v-col align="center">
                                 <div class="obj prime-back elevation-10">
                                     <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
@@ -98,7 +98,7 @@
 
         <!-- team -->
         <v-row justify="center" class="mt-16">
-            <p class="text-h5">Meet Our Team</p>
+            <p class="text-h5 text-sm-h6">Meet Our Team</p>
         </v-row>
         <v-row>
             <v-col cols="12" lg="3" md="4" v-for="item in teams" :key="item.id" align="center">

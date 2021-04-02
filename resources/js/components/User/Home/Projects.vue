@@ -2,43 +2,43 @@
 <div>
     <v-container class="mt-10">
         <v-row justify="center">
-            <v-col cols="6" align="center">
-                <p class="text-h5 font-weight-bold">Our Recent Projects</p>
-                <p class="body-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <v-col cols="12" lg="6" md="8" align="center">
+                <p class="text-h5 text-sm-h6 font-weight-bold">Recent Projects</p>
+                <p class="body-1">Our recent projects conducted to step ahead towards our goal of serving mankind and society.</p>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="12" lg="6" md="6" v-for="item in recent" :key="item.id">
-                <v-container fluid>
+                <v-container class="elevation-2" style="max-width:374px">
                     <v-row justify="center">
-                        <v-col cols="6">
+                        <v-col cols="12" lg="6" md="12">
                             <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
                         </v-col>
-                        <v-col cols="6">
-                            
-                            <v-card max-width="374" class=" mx-auto overflow-hidden" flat>
-                                <v-card-title @click="goToDetail(item)" style="cursor:pointer">{{item.title}}</v-card-title>
-                                <v-card-subtitle class="mt-n6">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-clock</v-icon>
-                                        <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
-                                    </v-row>
-                                </v-card-subtitle>
-                                <v-card-subtitle class="mt-n8">
-                                    <v-row class="px-3">
-                                        <v-icon small>mdi-map-marker</v-icon>
-                                        <p class="caption mt-4 ml-1">{{item.location}}</p>
-                                    </v-row>
-                                </v-card-subtitle>
+                        <v-col cols="12" lg="6" md="12">
+                            <v-hover v-slot="{ hover }" close-delay="200">
+                                <v-card  :elevation="hover ? 16 : 0" :class="{ 'on-hover': hover }" class=" mx-auto overflow-hidden" flat color="transparent">
+                                    <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
+                                    <v-card-subtitle class="mt-n6">
+                                        <v-row class="px-3">
+                                            <v-icon small>mdi-clock</v-icon>
+                                            <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
+                                        </v-row>
+                                    </v-card-subtitle>
+                                    <v-card-subtitle class="mt-n8">
+                                        <v-row class="px-3">
+                                            <v-icon small>mdi-map-marker</v-icon>
+                                            <p class="caption mt-4 ml-1">{{item.location}}</p>
+                                        </v-row>
+                                    </v-card-subtitle>
 
-                                <v-card-text class="mt-n3">
-                                    <div>{{item.intro}}</div>
-                                </v-card-text>
-                            </v-card>
+                                    <v-card-text class="mt-n3">
+                                        <div>{{item.intro}}</div>
+                                    </v-card-text>
+                                </v-card>
+                            </v-hover>
                         </v-col>
                     </v-row>
                 </v-container>
-
             </v-col>
         </v-row>
     </v-container>
@@ -49,29 +49,39 @@
 export default {
     data() {
         return {
-            recent:[]
+            recent: []
         }
     },
-    mounted(){
+    mounted() {
         this.getRecentProjects()
     },
-    methods:{
-        getRecentProjects(){
-             axios.get('api/getRecentProjects')
-             .then(res=>{
-                 this.recent=res.data
-             }).catch(err=>console.log(err.response))
+    methods: {
+        getRecentProjects() {
+            axios.get('api/getRecentProjects')
+                .then(res => {
+                    this.recent = res.data
+                }).catch(err => console.log(err.response))
         },
-        getImage(item){
-            return "../storage/"+item.image
+        getImage(item) {
+            return "../storage/" + item.image
         },
-        goToDetail(item){
+        goToDetail(item) {
             this.$router.push({
-                name:'Project-Detail',
-                params:{'id':item.id,'title':item.title}
+                name: 'Project-Detail',
+                params: {
+                    'id': item.id,
+                    'title': item.title
+                }
             })
         }
     }
 }
 </script>
 
+<style scoped>
+.hov {
+    cursor: pointer;
+    color: #8E5324;
+}
+
+</style>

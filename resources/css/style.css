@@ -20,9 +20,8 @@
     border:1px solid white;
 }
 .mbtn{
-    color: #8E5324;
+    color:#8E5324;
 }
 .mbtn:hover{
-    color: white;
-    background-color: #8E5324;
+    border-radius: 0px;
 }
