@@ -47,6 +47,11 @@ export default {
                     link:'/ma-admin/teams'
                 },
                 {
+                    title: 'Gallery',
+                    icon: 'mdi-image',
+                    link:'/ma-admin/gallery'
+                },
+                {
                     title: 'Slider',
                     icon: 'mdi-play-pause',
                     link:'/ma-admin/slider'

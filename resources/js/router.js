@@ -12,6 +12,7 @@ import AdminTeams from './components/Admin/Home/Team';
 import Slider from './components/Admin/Home/Slider';
 import Messages from './components/Admin/Home/Messages';
 import Subscribers from './components/Admin/Home/Subscribers';
+import AdminGallery from './components/Admin/Home/Gallery';
 
 //User components import
 import Main from "./Pages/User/Index";
@@ -53,6 +54,11 @@ const routes = [
                 path: "teams",
                 name: "AdminTeams",
                 component: AdminTeams
+            },
+            {
+                path: "gallery",
+                name: "AdminGallery",
+                component: AdminGallery
             },
             {
                 path: "slider",

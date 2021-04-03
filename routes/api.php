@@ -55,6 +55,12 @@ Route::group(['middleware'=>['auth:api'],'namespace'=>'Admin'],function(){
     //Subscribers
     Route::post('mySubscribers',[\App\Http\Controllers\Admin\SubscriberController::class,'mySubscribers']);
 
+    //Gallery
+    Route::get('getImage',[\App\Http\Controllers\Admin\GalleryController::class,'index']);
+    Route::post('gallery',[\App\Http\Controllers\Admin\GalleryController::class,'store']);
+    Route::delete('gallery/{gallery}',[\App\Http\Controllers\Admin\GalleryController::class,'delete']);
+    Route::post('addGalleryImage',[\App\Http\Controllers\Admin\GalleryController::class,'addGalleryImage']);
+
 });
 Route::post('recordMessage',[\App\Http\Controllers\HomeController::class,'recordMessage']);
 Route::get('getSliders',[\App\Http\Controllers\HomeController::class,'getSliders']);
@@ -66,6 +72,8 @@ Route::get('getRecentBlogs',[\App\Http\Controllers\HomeController::class,'getRec
 Route::post('getBlogDetails',[\App\Http\Controllers\HomeController::class,'getBlogDetails']);
 Route::get('getProjects',[\App\Http\Controllers\HomeController::class,'getProjects']);
 Route::get('getTeams',[\App\Http\Controllers\HomeController::class,'getTeams']);
+Route::get('getGallery',[\App\Http\Controllers\HomeController::class,'getGallery']);
+
 
 
 Route::post('adminLogin',[AuthController::class,'adminLogin']);

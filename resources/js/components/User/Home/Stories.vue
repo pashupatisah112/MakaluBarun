@@ -9,21 +9,27 @@
         </v-row>
         <v-row class="mt-n10">
             <v-col cols="12" lg="4" md="4" v-for="item in blogs" :key="item.id">
-                <v-hover v-slot="{ hover }">
-                <v-card class="mx-auto my-12" max-width="374" :elevation="hover ? 2 : 16" :class="{ 'on-hover': hover }">
-                    <v-img :aspect-ratio="16/9" :src="getImage(item)" class="rounded-lg"></v-img>
-                    <v-card-title @click="goToDetails(item)" class="hov">{{item.title}}</v-card-title>
-                    <v-card-text>
-                        <v-row class="px-3">
-                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-calendar</v-icon>{{ item.created_at | moment("dddd, MMMM Do YYYY") }}</p>
-                            <v-spacer></v-spacer>
-                            <p class="caption mb-0"><v-icon small class="mt-n1">mdi-account</v-icon>Author: {{item.author}}</p>
-                        </v-row>
+                <sequential-entrance>
+                    <v-hover v-slot="{ hover }">
+                        <v-card class="mx-auto my-12" max-width="374" :elevation="hover ? 2 : 16" :class="{ 'on-hover': hover }">
+                            <v-img :aspect-ratio="16/9" :src="getImage(item)" class="rounded-lg"></v-img>
+                            <v-card-title @click="goToDetails(item)" class="hov">{{item.title}}</v-card-title>
+                            <v-card-text>
+                                <v-row class="px-3">
+                                    <p class="caption mb-0">
+                                        <v-icon small class="mt-n1">mdi-calendar</v-icon>{{ item.created_at | moment("dddd, MMMM Do YYYY") }}
+                                    </p>
+                                    <v-spacer></v-spacer>
+                                    <p class="caption mb-0">
+                                        <v-icon small class="mt-n1">mdi-account</v-icon>Author: {{item.author}}
+                                    </p>
+                                </v-row>
 
-                    </v-card-text>
+                            </v-card-text>
 
-                </v-card>
-                </v-hover>
+                        </v-card>
+                    </v-hover>
+                </sequential-entrance>
             </v-col>
         </v-row>
     </v-container>
@@ -34,35 +40,39 @@
 export default {
     data() {
         return {
-            blogs:''
+            blogs: ''
         }
     },
-    mounted(){
-       this.getRecentBlogs()
+    mounted() {
+        this.getRecentBlogs()
     },
-    methods:{
-        getRecentBlogs(){
+    methods: {
+        getRecentBlogs() {
             axios.get('api/getRecentBlogs')
-            .then(res=>{
-                console.log(this.blogs)
-                this.blogs=res.data
-            }).catch(err=>console.log(err.response))
+                .then(res => {
+                    console.log(this.blogs)
+                    this.blogs = res.data
+                }).catch(err => console.log(err.response))
         },
-        getImage(item){
-            return "../storage/"+item.image
+        getImage(item) {
+            return "../storage/" + item.image
         },
-       goToDetails(item){
-           this.$router.push({
-               name:'Blog-Detail',
-               params:{'id':item.id,'title':item.title}
-           })
-       }
+        goToDetails(item) {
+            this.$router.push({
+                name: 'Blog-Detail',
+                params: {
+                    'id': item.id,
+                    'title': item.title
+                }
+            })
+        }
     }
 }
 </script>
+
 <style scoped>
-    .hov{
-        cursor: pointer;
-        color: #8E5324;
-    }
+.hov {
+    cursor: pointer;
+    color: #8E5324;
+}
 </style>

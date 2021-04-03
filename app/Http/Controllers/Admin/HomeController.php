@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use App\Models\Messages;
 use App\Models\Project;
 use App\Models\Story;
@@ -42,4 +43,5 @@ class HomeController extends Controller
              return false;
          }
     }
+    
 }

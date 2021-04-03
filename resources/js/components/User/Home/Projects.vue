@@ -9,14 +9,15 @@
         </v-row>
         <v-row>
             <v-col cols="12" lg="6" md="6" v-for="item in recent" :key="item.id">
-                <v-container class="elevation-2" style="max-width:374px">
+                <sequential-entrance>
+                <v-container class="elevation-2" >
                     <v-row justify="center">
                         <v-col cols="12" lg="6" md="12">
                             <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
                         </v-col>
                         <v-col cols="12" lg="6" md="12">
                             <v-hover v-slot="{ hover }" close-delay="200">
-                                <v-card  :elevation="hover ? 16 : 0" :class="{ 'on-hover': hover }" class=" mx-auto overflow-hidden" flat color="transparent">
+                                <v-card max-width="400"  :elevation="hover ? 16 : 0" :class="{ 'on-hover': hover }" class=" mx-auto overflow-hidden" flat color="transparent">
                                     <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
                                     <v-card-subtitle class="mt-n6">
                                         <v-row class="px-3">
@@ -39,6 +40,7 @@
                         </v-col>
                     </v-row>
                 </v-container>
+                </sequential-entrance>
             </v-col>
         </v-row>
     </v-container>

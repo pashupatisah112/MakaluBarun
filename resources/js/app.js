@@ -12,6 +12,10 @@ import 'froala-editor/js/plugins.pkgd.min' // all plugins (you can add plugins b
 import VueFroala from 'vue-froala-wysiwyg'
 Vue.use(VueFroala)
 
+import SequentialEntrance from 'vue-sequential-entrance'
+import 'vue-sequential-entrance/vue-sequential-entrance.css'
+Vue.use(SequentialEntrance);
+
 Vue.use(require('vue-moment'));
 
 import VueSocialSharing from 'vue-social-sharing'

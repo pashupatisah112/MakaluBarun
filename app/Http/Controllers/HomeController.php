@@ -9,6 +9,7 @@ use App\Models\Slider;
 use App\Models\Story;
 use App\Models\Subscriber;
 use App\Models\Team;
+use App\Models\Gallery;
 
 class HomeController extends Controller
 {
@@ -68,5 +69,10 @@ class HomeController extends Controller
             $team=Team::all();
             return response()->json($team);
         }
+        public function getGallery()
+    {
+        $gallery=Gallery::take(6)->get();
+        return response()->json($gallery);
+    }
     
 }

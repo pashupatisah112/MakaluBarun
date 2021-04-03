@@ -20,19 +20,19 @@
         <v-row justify="center">
             <p class="body-1 clearmx-2 font-weight-bold">Share this: </p>
             <ShareNetwork network="facebook" :url="url" :title="title" description="Blogs and stories by Makalu Arun Valley Welfare." quote="The worlds need you for change." hashtags="Makalu_Arun_Valley_Welfare,blogs">
-                <v-btn max-width="150" rounded color="#3b5998" dark class="text-capitalize mx-2 mt-n2">
+                <v-btn max-width="150" small rounded color="#3b5998" dark class="text-capitalize mx-2 mt-n2">
                     <v-icon class="mx-2 text-capitalize x-small">mdi-facebook</v-icon>
                     Facebook
                 </v-btn>
             </ShareNetwork>
             <ShareNetwork network="twitter" :url="url" :title="title" description="Blogs and stories by Makalu Arun Valley Welfare." quote="The worlds need you for change." hashtags="Makalu_Arun_Valley_Welfare,blogs">
-                <v-btn max-width="150" rounded color="#00acee" dark class="text-capitalize mx-2 mt-n2">
+                <v-btn max-width="150" small rounded color="#00acee" dark class="text-capitalize mx-2 mt-n2">
                     <v-icon class="mr-2 text-capitalize x-small">mdi-twitter</v-icon>
                     Twitter
                 </v-btn>
             </ShareNetwork>
             <ShareNetwork network="linkedin" :url="url" :title="title" description="Blogs and stories by Makalu Arun Valley Welfare." quote="The worlds need you for change." hashtags="Makalu_Arun_Valley_Welfare,blogs">
-                <v-btn max-width="150" rounded color="#0072b1" dark class="text-capitalize mx-2 mt-n2">
+                <v-btn max-width="150" small rounded color="#0072b1" dark class="text-capitalize mx-2 mt-n2">
                     <v-icon class="mr-2 text-capitalize x-small">mdi-facebook</v-icon>
                     Linked In
                 </v-btn>

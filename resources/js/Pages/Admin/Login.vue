@@ -9,7 +9,7 @@
                         <v-form v-model="valid" ref="form">
                             <v-text-field v-model="username" :error-messages="loginError" outlined label="Enter username" dense prepend-inner-icon="mdi-shield-account" class="mx-5" :rules="[validRules.required]"></v-text-field>
                             <v-text-field v-model="password" type="password" dense outlined label="Password" prepend-inner-icon="mdi-shield-lock" class="mx-5" :rules="[validRules.required]"></v-text-field>
-                            <v-btn class="mb-5 mx-auto mbtn" outlined rounded @click="login">Login</v-btn>
+                            <v-btn class="mb-5 mx-auto mbtn" outlined color="sec" rounded @click="login">Login</v-btn>
                         </v-form>
 
                     </v-card>

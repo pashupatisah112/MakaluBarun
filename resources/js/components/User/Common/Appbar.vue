@@ -10,7 +10,7 @@
             <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/projects">Projects</v-btn>
             <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/blogs">Blogs</v-btn>
             <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/contact-us">Contact</v-btn>
-            <v-btn dark rounded color="sec" class="text-capitalize mx-1" x-large @click="donateDialog=true">
+            <v-btn rounded dark color="sec" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
                 <v-icon>mdi-currency-usd</v-icon>
                 Donate
             </v-btn>
@@ -52,7 +52,7 @@
                 <span><b>Branch:</b> XYZ Branch</span><br>
             </v-card-text>
             <v-card-actions>
-                <v-btn outlined dark color="sec" to="/contact-us" @click="donateDialog=false" rounded class="text-capitalize mbtn">Contact Us</v-btn>
+                <v-btn dark color="sec" to="/contact-us" @click="donateDialog=false" rounded class="text-capitalize">Contact Us</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>

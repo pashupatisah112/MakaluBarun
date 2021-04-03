@@ -4,10 +4,16 @@
         <!-- short detail -->
         <v-row justify="center">
             <v-col cols="12" lg="8" md="10" align="center">
-                <p class="text-h5 text-sm-h6">About Makalu Arun</p>
-                <p class="body-2">
-                    Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
-                </p>
+                <sequential-entrance fromTop>
+
+                    <p class="text-h5 text-sm-h6">About Makalu Arun</p>
+                </sequential-entrance>
+
+                <sequential-entrance fromTop>
+                    <p class="body-2">
+                        Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
+                    </p>
+                </sequential-entrance>
             </v-col>
         </v-row>
         <!-- end short detail -->
@@ -77,18 +83,26 @@
         </v-row> -->
         <v-row>
             <v-col cols="12" align="center">
-                <p class="text-h5 text-sm-h6">Our Goals and Objectives</p>
+                <sequential-entrance fromBottom>
+
+                    <p class="text-h5 text-sm-h6">Our Goals and Objectives</p>
+                </sequential-entrance>
+
                 <v-row>
                     <v-col cols="6" lg="4" md="4" v-for="(item,i) in goals" :key="i">
-                        <v-card flat>
-                            <v-col align="center">
-                                <div class="obj prime-back elevation-10">
-                                    <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
-                                </div>
-                                <p class="body-1 mt-2 obj-text" @click="showDetail(item)">{{item.title}}</p>
+                        <sequential-entrance>
 
-                            </v-col>
-                        </v-card>
+                            <v-card flat>
+                                <v-col align="center">
+                                    <div class="obj prime-back elevation-10">
+                                        <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
+                                    </div>
+                                    <p class="body-1 mt-2 obj-text" @click="showDetail(item)">{{item.title}}</p>
+
+                                </v-col>
+                            </v-card>
+                        </sequential-entrance>
+
                     </v-col>
                 </v-row>
             </v-col>
@@ -102,45 +116,49 @@
         </v-row>
         <v-row>
             <v-col cols="12" lg="3" md="4" v-for="item in teams" :key="item.id" align="center">
-                <v-card max-width="300">
-                    <v-col align="center">
-                        <v-list-item-avatar size="120" style="border:2px solid #8E5324;">
-                            <v-img :src="getImage(item)"></v-img>
-                        </v-list-item-avatar>
-                        <p class="title mb-n3">{{item.fname+' '}}{{item.lname}}</p>
-                        <v-card-subtitle>{{item.position}}</v-card-subtitle>
-                        <v-row justify="center">
-                            <v-btn fab dark x-small color="prime" :href="getFbLink(item)" target="_blank">
-                                <v-icon>mdi-facebook</v-icon>
-                            </v-btn>
-                            <v-btn fab dark x-small class="mx-5" :href="getInstaLink(item)" color="prime" target="_blank">
-                                <v-icon>mdi-instagram</v-icon>
-                            </v-btn>
-                            <v-btn fab dark x-small color="prime" :href="getTwitterLink(item)" target="_blank">
-                                <v-icon>mdi-twitter</v-icon>
-                            </v-btn>
-                        </v-row>
-                        <v-btn v-if="!expand" icon color="primary" x-small @click="expand=true" class="mt-4">
-                            <v-icon>
-                                mdi-chevron-down
-                            </v-icon>
-                        </v-btn>
+                <sequential-entrance>
 
-                        <v-expand-transition>
-                            <v-card v-show="expand" flat class="mt-10 position-absolute">
-                                <v-card-text>
-                                    {{item.about}}
-                                </v-card-text>
-                            </v-card>
-                        </v-expand-transition>
+                    <v-card max-width="300">
+                        <v-col align="center">
+                            <v-list-item-avatar size="120" style="border:2px solid #8E5324;">
+                                <v-img :src="getImage(item)"></v-img>
+                            </v-list-item-avatar>
+                            <p class="title mb-n3">{{item.fname+' '}}{{item.lname}}</p>
+                            <v-card-subtitle>{{item.position}}</v-card-subtitle>
+                            <v-row justify="center">
+                                <v-btn fab dark x-small color="prime" :href="getFbLink(item)" target="_blank">
+                                    <v-icon>mdi-facebook</v-icon>
+                                </v-btn>
+                                <v-btn fab dark x-small class="mx-5" :href="getInstaLink(item)" color="prime" target="_blank">
+                                    <v-icon>mdi-instagram</v-icon>
+                                </v-btn>
+                                <v-btn fab dark x-small color="prime" :href="getTwitterLink(item)" target="_blank">
+                                    <v-icon>mdi-twitter</v-icon>
+                                </v-btn>
+                            </v-row>
+                            <v-btn v-if="!expand" icon color="primary" x-small @click="expand=true" class="mt-4">
+                                <v-icon>
+                                    mdi-chevron-down
+                                </v-icon>
+                            </v-btn>
 
-                        <v-btn v-if="expand" icon color="primary" x-small @click="expand=false" class="mt-4">
-                            <v-icon>
-                                mdi-chevron-up
-                            </v-icon>
-                        </v-btn>
-                    </v-col>
-                </v-card>
+                            <v-expand-transition>
+                                <v-card v-show="expand" flat class="mt-10 position-absolute">
+                                    <v-card-text>
+                                        {{item.about}}
+                                    </v-card-text>
+                                </v-card>
+                            </v-expand-transition>
+
+                            <v-btn v-if="expand" icon color="primary" x-small @click="expand=false" class="mt-4">
+                                <v-icon>
+                                    mdi-chevron-up
+                                </v-icon>
+                            </v-btn>
+                        </v-col>
+                    </v-card>
+                    </sequential-entrance>
+
             </v-col>
         </v-row>
         <!-- end team -->
@@ -237,13 +255,13 @@ export default {
         getImage(item) {
             return "../storage/" + item.image
         },
-        getFbLink(item){
+        getFbLink(item) {
             return item.fb_link
         },
-        getInstaLink(item){
+        getInstaLink(item) {
             return item.insta_link
         },
-        getTwitterLink(item){
+        getTwitterLink(item) {
             return item.twitter_link
         }
     }
@@ -277,5 +295,6 @@ export default {
 
 .obj-text:hover {
     color: #8E5324;
+    font-size: 30px;
 }
 </style>

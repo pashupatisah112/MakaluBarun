@@ -19,9 +19,3 @@
 .white-border{
     border:1px solid white;
 }
-.mbtn{
-    color:#8E5324;
-}
-.mbtn:hover{
-    border-radius: 0px;
-}
