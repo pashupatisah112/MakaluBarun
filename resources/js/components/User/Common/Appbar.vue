@@ -1,42 +1,43 @@
 <template>
 <div>
-    <v-app-bar color="white" height="80" fixed app>
-        <v-img src="../images/logo.png" :aspect-ratio="16/16" max-width="75" class="my-2"></v-img>
-        <p class="text-h6 ml-5 mb-n3 sec-text">MAV Welfare</p>
+    <v-toolbar color="white" class="px-10 position-sticky">
+        <v-btn text color="prime">
+            <v-icon class="mr-5">mdi-phone</v-icon>
+            <span class="font-weight-bold">+977 9841337185</span>
+        </v-btn>
+
+        <v-btn text class="mx-10 text-lowercase" color="prime">
+            <v-icon class="mr-5">mdi-email</v-icon>
+            <span class="font-weight-bold">info@mavwelfare.org</span>
+        </v-btn>
+
         <v-spacer></v-spacer>
-        <div class="hidden-md-and-down">
-            <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/home">Home</v-btn>
-            <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/about-us">About Us</v-btn>
-            <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/projects">Projects</v-btn>
-            <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/blogs">Blogs</v-btn>
-            <v-btn text light rounded color="sec" class="text-capitalize mx-1" x-large to="/contact-us">Contact</v-btn>
-            <v-btn rounded dark color="sec" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
-                <v-icon>mdi-currency-usd</v-icon>
-                Donate
-            </v-btn>
-        </div>
-        <div class="hidden-lg-and-up">
-            <template>
-                <div class="text-center">
-                    <v-menu transition="scale-transition">
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon dark color="sec" x-large v-bind="attrs" v-on="on">
-                                <v-icon>mdi-menu</v-icon>
-                            </v-btn>
-                        </template>
-                        <v-list dense>
-                            <v-list-item v-for="(item,i) in menu" :key="i" dense link :to="item.link">
-                                <v-list-item-title v-text="item.title"></v-list-item-title>
-                            </v-list-item>
-                            <v-list-item dense link @click="donateDialog=true">
-                                <v-list-item-title><v-icon>mdi-currency-usd</v-icon>Donate</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-                </div>
-            </template>
-        </div>
-    </v-app-bar>
+
+        <v-btn icon>
+            <v-icon>mdi-facebook</v-icon>
+        </v-btn>
+        <v-btn icon>
+            <v-icon>mdi-instagram</v-icon>
+        </v-btn>
+        <v-btn icon>
+            <v-icon>mdi-twitter</v-icon>
+        </v-btn>
+    </v-toolbar>
+
+    <v-divider style="border:1px solid #BE9F50"></v-divider>
+
+    <v-toolbar flat height="120" class="px-10">
+        <v-img src="../images/logo.png" max-width="100"></v-img>
+        <p class="text-h4 prime-text font-weight-bold mx-5">Makalu Arun Valley Social Welfare</p>
+        <v-spacer></v-spacer>
+
+        <v-btn rounded dark color="prime" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
+            <v-icon>mdi-currency-usd</v-icon>
+            Donate
+        </v-btn>
+    </v-toolbar>
+
+    <menubar></menubar>
 
     <v-dialog v-model="donateDialog" max-width="500">
         <v-card>
@@ -61,17 +62,15 @@
 </template>
 
 <script>
+import Menubar from './Menubar';
 export default {
+    components: {
+        Menubar
+    },
     data() {
         return {
             donateDialog: false,
-            menu:[
-                {title:'Home',link:'/home'},
-                {title:'About Us',link:'/about-us'},
-                {title:'Projects',link:'/projects'},
-                {title:'Blogs',link:'/blogs'},
-                {title:'Contact Us',link:'/contact-us'},
-            ]
+
         }
     }
 }

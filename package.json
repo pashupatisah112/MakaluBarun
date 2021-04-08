@@ -28,6 +28,8 @@
     },
     "dependencies": {
         "epic-spinners": "^1.1.0",
+        "swiper": "^6.5.4",
+        "vue-awesome-swiper": "^4.1.1",
         "vue-froala-wysiwyg": "^3.2.6-1",
         "vue-moment": "^4.1.0",
         "vue-router": "^3.5.1",

@@ -6,22 +6,20 @@ Vue.use(VueRouter);
 import AdminLogin from "./Pages/Admin/Login";
 import AdminMain from "./Pages/Admin/Index";
 import Dashboard from "./Pages/Admin/Home";
-import AdminStories from "./components/Admin/Home/Stories";
 import AdminProjects from './components/Admin/Home/Projects';
-import AdminTeams from './components/Admin/Home/Team';
 import Slider from './components/Admin/Home/Slider';
 import Messages from './components/Admin/Home/Messages';
 import Subscribers from './components/Admin/Home/Subscribers';
 import AdminGallery from './components/Admin/Home/Gallery';
+import AdminMemory from './components/Admin/Home/Memory';
+
 
 //User components import
 import Main from "./Pages/User/Index";
 import Home from "./Pages/User/Home";
 import About from './Pages/User/About';
 import Project from './Pages/User/Projects';
-import Blog from './Pages/User/BlogList';
 import Contact from './Pages/User/Contact';
-import BlogDetail from './Pages/User/BlogDetail';
 import ProjectDetail from './Pages/User/ProjectDetail';
 
 const routes = [
@@ -40,25 +38,22 @@ const routes = [
                 name: "AdminDashboard",
                 component: Dashboard
             },
-            {
-                path: "stories",
-                name: "AdminStories",
-                component: AdminStories
-            },
+            
             {
                 path: "projects",
                 name: "AdminProjects",
                 component: AdminProjects
             },
-            {
-                path: "teams",
-                name: "AdminTeams",
-                component: AdminTeams
-            },
+           
             {
                 path: "gallery",
                 name: "AdminGallery",
                 component: AdminGallery
+            },
+            {
+                path: "memory",
+                name: "AdminMemory",
+                component: AdminMemory
             },
             {
                 path: "slider",
@@ -109,16 +104,6 @@ const routes = [
                 path: "team",
                 name: "Team",
                 component: About
-            },
-            {
-                path: "/blogs",
-                name: "Blog",
-                component: Blog
-            },
-            {
-                path: "/blog/:id/:title",
-                name: "Blog-Detail",
-                component: BlogDetail
             },
             {
                 path: "/project/:id/:title",

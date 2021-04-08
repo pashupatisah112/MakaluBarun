@@ -24,22 +24,6 @@ Route::group(['middleware'=>['auth:api'],'namespace'=>'Admin'],function(){
     Route::post('addProjectImage',[ProjectController::class,'addProjectImage']);
     Route::post('changeImage',[ProjectController::class,'changeImage']);
 
-    //stories
-    Route::post('myStories',[\App\Http\Controllers\Admin\StoryController::class,'myStories']);
-    Route::post('stories',[\App\Http\Controllers\Admin\StoryController::class,'store']);
-    Route::put('stories/{story}',[\App\Http\Controllers\Admin\StoryController::class,'update']);
-    Route::delete('stories/{story}',[\App\Http\Controllers\Admin\StoryController::class,'delete']);
-    Route::post('addStoryImage',[\App\Http\Controllers\Admin\StoryController::class,'addStoryImage']);
-    Route::post('changeStoryImage',[\App\Http\Controllers\Admin\StoryController::class,'changeStoryImage']);
-
-    //Team
-    Route::post('myTeams',[\App\Http\Controllers\Admin\TeamController::class,'myTeams']);
-    Route::post('teams',[\App\Http\Controllers\Admin\TeamController::class,'store']);
-    Route::put('teams/{team}',[\App\Http\Controllers\Admin\TeamController::class,'update']);
-    Route::delete('teams/{team}',[\App\Http\Controllers\Admin\TeamController::class,'delete']);
-    Route::post('addTeamImage',[\App\Http\Controllers\Admin\TeamController::class,'addTeamImage']);
-    Route::post('changeTeamImage',[\App\Http\Controllers\Admin\TeamController::class,'changeTeamImage']);
-
     //Slider
     Route::get('sliders',[\App\Http\Controllers\Admin\SliderController::class,'index']);
     Route::post('sliders',[\App\Http\Controllers\Admin\SliderController::class,'store']);
@@ -60,6 +44,12 @@ Route::group(['middleware'=>['auth:api'],'namespace'=>'Admin'],function(){
     Route::post('gallery',[\App\Http\Controllers\Admin\GalleryController::class,'store']);
     Route::delete('gallery/{gallery}',[\App\Http\Controllers\Admin\GalleryController::class,'delete']);
     Route::post('addGalleryImage',[\App\Http\Controllers\Admin\GalleryController::class,'addGalleryImage']);
+
+    //Memory
+    Route::get('getImage',[\App\Http\Controllers\Admin\MemoryController::class,'index']);
+    Route::post('memory',[\App\Http\Controllers\Admin\MemoryController::class,'store']);
+    Route::delete('memory/{memory}',[\App\Http\Controllers\Admin\MemoryController::class,'delete']);
+    Route::post('addMemoryImage',[\App\Http\Controllers\Admin\MemoryController::class,'addMemoryImage']);
 
 });
 Route::post('recordMessage',[\App\Http\Controllers\HomeController::class,'recordMessage']);

@@ -37,19 +37,14 @@ export default {
                     link:'/ma-admin/projects'
                 },
                 {
-                    title: 'Blogs',
-                    icon: 'mdi-notebook',
-                    link:'/ma-admin/stories'
-                },
-                {
-                    title: 'Teams',
-                    icon: 'mdi-account-group',
-                    link:'/ma-admin/teams'
-                },
-                {
                     title: 'Gallery',
                     icon: 'mdi-image',
                     link:'/ma-admin/gallery'
+                },
+                 {
+                    title: 'Memory',
+                    icon: 'mdi-image-filter-frames',
+                    link:'/ma-admin/memory'
                 },
                 {
                     title: 'Slider',

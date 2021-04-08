@@ -5,8 +5,8 @@
         <v-row justify="center">
             <v-col cols="12" lg="8" md="10" align="center">
                 <sequential-entrance fromTop>
-
-                    <p class="text-h5 text-sm-h6">About Makalu Arun</p>
+                    <v-icon color="sec">mdi-account-group</v-icon>
+                    <p class="text-h5 text-sm-h6">Who We Are</p>
                 </sequential-entrance>
 
                 <sequential-entrance fromTop>

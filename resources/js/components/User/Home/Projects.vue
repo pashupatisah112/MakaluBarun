@@ -3,43 +3,36 @@
     <v-container class="mt-10">
         <v-row justify="center">
             <v-col cols="12" lg="6" md="8" align="center">
-                <p class="text-h5 text-sm-h6 font-weight-bold">Recent Projects</p>
-                <p class="body-1">Our recent projects conducted to step ahead towards our goal of serving mankind and society.</p>
+                <p class="text-h4 font-weight-bold">Our Recent Projects</p>
+                <v-btn rounded dark color="prime" class="text-capitalize">
+                    View All Projects
+                    <v-icon class="ml-2">mdi-arrow-right</v-icon>
+                </v-btn>
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="12" lg="6" md="6" v-for="item in recent" :key="item.id">
+            <v-col cols="12" lg="4" md="4" v-for="item in recent" :key="item.id">
                 <sequential-entrance>
-                <v-container class="elevation-2" >
-                    <v-row justify="center">
-                        <v-col cols="12" lg="6" md="12">
-                            <v-img height="250" :src="getImage(item)" class="rounded-lg"></v-img>
-                        </v-col>
-                        <v-col cols="12" lg="6" md="12">
-                            <v-hover v-slot="{ hover }" close-delay="200">
-                                <v-card max-width="400"  :elevation="hover ? 16 : 0" :class="{ 'on-hover': hover }" class=" mx-auto overflow-hidden" flat color="transparent">
-                                    <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
-                                    <v-card-subtitle class="mt-n6">
-                                        <v-row class="px-3">
-                                            <v-icon small>mdi-clock</v-icon>
-                                            <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
-                                        </v-row>
-                                    </v-card-subtitle>
-                                    <v-card-subtitle class="mt-n8">
-                                        <v-row class="px-3">
-                                            <v-icon small>mdi-map-marker</v-icon>
-                                            <p class="caption mt-4 ml-1">{{item.location}}</p>
-                                        </v-row>
-                                    </v-card-subtitle>
+                    <v-card max-width="400" tile class=" mx-auto overflow-hidden">
+                        <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+                        <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
+                        <v-card-subtitle class="mt-n6">
+                            <v-row class="px-3">
+                                <v-icon small>mdi-clock</v-icon>
+                                <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
+                            </v-row>
+                        </v-card-subtitle>
+                        <v-card-subtitle class="mt-n8">
+                            <v-row class="px-3">
+                                <v-icon small>mdi-map-marker</v-icon>
+                                <p class="caption mt-4 ml-1">{{item.location}}</p>
+                            </v-row>
+                        </v-card-subtitle>
 
-                                    <v-card-text class="mt-n3">
-                                        <div>{{item.intro}}</div>
-                                    </v-card-text>
-                                </v-card>
-                            </v-hover>
-                        </v-col>
-                    </v-row>
-                </v-container>
+                        <v-card-text class="mt-n3">
+                            <div>{{item.intro}}</div>
+                        </v-card-text>
+                    </v-card>
                 </sequential-entrance>
             </v-col>
         </v-row>
@@ -85,5 +78,4 @@ export default {
     cursor: pointer;
     color: #8E5324;
 }
-
 </style>

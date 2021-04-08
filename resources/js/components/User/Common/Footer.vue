@@ -1,7 +1,8 @@
 <template>
-<div style="background-color:#1A1A1A;color:white">
-    <v-container>
+<div style="color:white" class="prime-back">
+    <v-container fluid>
         <v-row>
+            <!-- organization info -->
             <v-col cols="12" lg="3" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title class="text-white">MAKALU ARUN VALLEY</v-card-title>
@@ -23,8 +24,10 @@
                 </v-card>
 
             </v-col>
+            <!-- end organization info -->
 
-            <v-col cols="12" lg="3" md="6">
+            <!-- quick links -->
+            <v-col cols="12" lg="2" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title>
                         QUICK LINKS
@@ -52,22 +55,45 @@
                 </v-card>
 
             </v-col>
-            <v-col cols="12" lg="6" md="6">
+            <!-- end quick links -->
+
+            <!-- associated company -->
+            <v-col cols="12" lg="3" md="6">
+                <v-card flat dark color="transparent">
+                    <v-card-title>
+                        We are associated with
+                    </v-card-title>
+                    <v-row>
+                        <v-col align="center">
+                            <v-img src="../images/logo.png" max-width="75"></v-img>
+                            <p>title</p>
+                        </v-col>
+                       
+                    </v-row>
+
+                </v-card>
+
+            </v-col>
+            <!-- end associated company -->
+
+            <!-- newsletter -->
+            <v-col cols="12" lg="4" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title>Newletters</v-card-title>
                     <v-card-subtitle>Send us your email to get news about events and campaign.</v-card-subtitle>
                 </v-card>
-                 <v-form v-model="valid" ref="form">
-                            <v-text-field v-model="email" dark filled dense placeholder="Enter your email" rounded :rules="[validRules.required,validRules.email]">
-                                <template slot="append">
-                                    <v-btn rounded dark @click="subscribe" class="mt-n2 mr-n3">Subscribe</v-btn>
-                                </template>
-                            </v-text-field>
-                        </v-form>
+                <v-form v-model="valid" ref="form">
+                    <v-text-field v-model="email" background-color="white" filled dense placeholder="Enter your email" rounded :rules="[validRules.required,validRules.email]">
+                        <template slot="append">
+                            <v-btn rounded dark color="sec" style="margin-top:-7px;margin-right:-21px" @click="subscribe">Send</v-btn>
+                        </template>
+                    </v-text-field>
+                </v-form>
             </v-col>
+            <!-- end newsletter -->
         </v-row>
         <v-row justify="center">
-             <p class="body-2 text-center white--text">Copyright 2021 All rights reserved. Developed by <span style="color:#66BB6A">Fiftech Zone.</span></p>
+            <p class="body-2 text-center white--text">Copyright 2021 All rights reserved. Developed by <span style="color:#66BB6A">Fiftech Zone.</span></p>
         </v-row>
         <!-- snackbar -->
         <v-snackbar v-model="snackbar" timeout="3000">
@@ -93,7 +119,7 @@ export default {
                 required: value => !!value || "Required.",
                 email: v => /.+@.+\..+/.test(v) || "E-mail must be valid",
             },
-            snackbar:false
+            snackbar: false
         }
     },
     methods: {
