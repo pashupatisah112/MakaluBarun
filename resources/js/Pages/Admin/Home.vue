@@ -6,7 +6,7 @@
                 <v-card max-width="300">
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon size="80">mdi-briefcase-download</v-icon>
+                                <v-icon size="80" color="prime">mdi-briefcase-download</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-subtitle>Projects</v-list-item-subtitle>
@@ -25,7 +25,7 @@
                 <v-card max-width="300">
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon size="80">mdi-play-pause</v-icon>
+                                <v-icon size="80" color="prime">mdi-play-pause</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-subtitle>Sliders</v-list-item-subtitle>
@@ -44,7 +44,7 @@
                 <v-card max-width="300">
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon size="80">mdi-message-text</v-icon>
+                                <v-icon size="80" color="prime">mdi-message-text</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-subtitle>Messages</v-list-item-subtitle>
@@ -63,7 +63,7 @@
                 <v-card max-width="300">
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon size="80">mdi-bell-ring</v-icon>
+                                <v-icon size="80" color="prime">mdi-bell-ring</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-subtitle>Subscribers</v-list-item-subtitle>

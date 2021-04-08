@@ -1,6 +1,33 @@
 <template>
-<div style="color:white" class="prime-back">
+<div>
     <v-container fluid>
+        <v-row>
+            <v-img src="../images/makalu.jpg" :aspect-ratio="16/3">
+            
+                <v-container fluid style="height:100%;color:white;background-color:#151515;opacity:0.7">
+                    
+                    <v-row class="py-16">
+                        <v-col cols="12" lg="4" md="4" align="center">
+                            <v-icon size="50" color="white">mdi-map-marker</v-icon>
+                            <p class="text-h5 font-weight-bold">Address</p>
+                            <p class="body-1">Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal</p>
+                        </v-col>
+                        <v-col cols="12" lg="4" md="4" align="center">
+                            <v-icon size="50" color="white">mdi-phone</v-icon>
+                            <p class="text-h5 font-weight-bold">Phone</p>
+                            <p class="title">+977 9841337185</p>
+                        </v-col>
+                        <v-col cols="12" lg="4" md="4" align="center">
+                            <v-icon size="50" color="white">mdi-email</v-icon>
+                            <p class="text-h5 font-weight-bold">Email</p>
+                            <p class="title">info@mavwelfare.org</p>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-img>
+        </v-row>
+    </v-container>
+    <v-container fluid style="color:white" class="prime-back">
         <v-row>
             <!-- organization info -->
             <v-col cols="12" lg="3" md="6">
@@ -14,10 +41,10 @@
                         <v-btn fab small href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank">
                             <v-icon>mdi-facebook</v-icon>
                         </v-btn>
-                        <v-btn fab small>
+                        <v-btn fab small target="_blank" href="">
                             <v-icon>mdi-twitter</v-icon>
                         </v-btn>
-                        <v-btn fab small>
+                        <v-btn fab small target="_blank" href="https://www.instagram.com/_makalusocialwelfare/">
                             <v-icon>mdi-instagram</v-icon>
                         </v-btn>
                     </v-card-actions>
@@ -68,7 +95,7 @@
                             <v-img src="../images/logo.png" max-width="75"></v-img>
                             <p>title</p>
                         </v-col>
-                       
+
                     </v-row>
 
                 </v-card>

@@ -19,6 +19,7 @@ import Main from "./Pages/User/Index";
 import Home from "./Pages/User/Home";
 import About from './Pages/User/About';
 import Project from './Pages/User/Projects';
+import Gallery from './Pages/User/Gallery';
 import Contact from './Pages/User/Contact';
 import ProjectDetail from './Pages/User/ProjectDetail';
 
@@ -101,9 +102,9 @@ const routes = [
                 component: Contact
             },
             {
-                path: "team",
-                name: "Team",
-                component: About
+                path: "gallery",
+                name: "Gallery",
+                component: Gallery
             },
             {
                 path: "/project/:id/:title",

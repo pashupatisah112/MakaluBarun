@@ -10,6 +10,7 @@ use App\Models\Story;
 use App\Models\Subscriber;
 use App\Models\Team;
 use App\Models\Gallery;
+use App\Models\Memory;
 
 class HomeController extends Controller
 {
@@ -36,16 +37,7 @@ class HomeController extends Controller
         $project=Project::where('id',$request->id)->first();
         return response()->json($project);
     }
-    public function getRecentBlogs()
-    {
-        $story=Story::take(3)->get();
-        return response()->json($story);
-    }
-    public function getBlogDetails(Request $request)
-    {
-        $story=Story::where('id',$request->id)->first();
-        return response()->json($story);
-    }
+    
     public function subscribe(Request $request)
     {
         $subscribe=new Subscriber;
@@ -53,26 +45,21 @@ class HomeController extends Controller
         $subscribe->save();
     }
     
-        public function myBlogs(Request $request){
-            $items=$request->per_page;
-            $blogs=Story::paginate(8);
-            return response()->json($blogs);
-            
-        }
-        public function getProjects()
-        {
-            $project=Project::all();
-            return response()->json($project);
-        }
-        public function getTeams()
-        {
-            $team=Team::all();
-            return response()->json($team);
-        }
-        public function getGallery()
+    public function getProjects()
+    {
+        $project=Project::all();
+        return response()->json($project);
+    }
+
+    public function getGallery()
     {
         $gallery=Gallery::take(6)->get();
         return response()->json($gallery);
+    }
+    public function getMemories()
+    {
+        $memory=Memory::get();
+        return response()->json($memory);
     }
     
 }

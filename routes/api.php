@@ -56,13 +56,10 @@ Route::post('recordMessage',[\App\Http\Controllers\HomeController::class,'record
 Route::get('getSliders',[\App\Http\Controllers\HomeController::class,'getSliders']);
 Route::get('getRecentProjects',[\App\Http\Controllers\HomeController::class,'getRecentProjects']);
 Route::post('subscribe',[\App\Http\Controllers\HomeController::class,'subscribe']);
-Route::post('myBlogs',[\App\Http\Controllers\HomeController::class,'myBlogs']);
 Route::post('getProjectDetail',[\App\Http\Controllers\HomeController::class,'getProjectDetail']);
-Route::get('getRecentBlogs',[\App\Http\Controllers\HomeController::class,'getRecentBlogs']);
-Route::post('getBlogDetails',[\App\Http\Controllers\HomeController::class,'getBlogDetails']);
 Route::get('getProjects',[\App\Http\Controllers\HomeController::class,'getProjects']);
-Route::get('getTeams',[\App\Http\Controllers\HomeController::class,'getTeams']);
 Route::get('getGallery',[\App\Http\Controllers\HomeController::class,'getGallery']);
+Route::get('getMemories',[\App\Http\Controllers\HomeController::class,'getMemories']);
 
 
 

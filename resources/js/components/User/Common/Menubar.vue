@@ -6,7 +6,7 @@
             <v-btn text dark class="text-capitalize menu-text" large to="/home">Home</v-btn>
             <v-btn text dark class="text-capitalize menu-text" large to="/about-us">About Us</v-btn>
             <v-btn text dark class="text-capitalize menu-text" large to="/projects">Projects</v-btn>
-            <v-btn text dark class="text-capitalize menu-text" large to="/blogs">Blogs</v-btn>
+            <v-btn text dark class="text-capitalize menu-text" large to="/gallery">Gallery</v-btn>
             <v-btn text dark class="text-capitalize menu-text" large to="/contact-us">Contact</v-btn>
 
         </div>

@@ -4,7 +4,7 @@
         <v-row justify="center">
             <v-col cols="12" lg="6" md="8" align="center">
                 <p class="text-h4 font-weight-bold">Our Recent Projects</p>
-                <v-btn rounded dark color="prime" class="text-capitalize">
+                <v-btn rounded dark color="prime" class="text-capitalize" to="/projects">
                     View All Projects
                     <v-icon class="ml-2">mdi-arrow-right</v-icon>
                 </v-btn>
@@ -14,7 +14,7 @@
             <v-col cols="12" lg="4" md="4" v-for="item in recent" :key="item.id">
                 <sequential-entrance>
                     <v-card max-width="400" tile class=" mx-auto overflow-hidden">
-                        <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+                        <v-img :src="getImage(item)"></v-img>
                         <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
                         <v-card-subtitle class="mt-n6">
                             <v-row class="px-3">

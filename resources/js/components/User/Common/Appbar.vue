@@ -13,13 +13,13 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn icon>
+        <v-btn icon href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank">
             <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn icon>
+        <v-btn icon target="_blank" href="https://www.instagram.com/_makalusocialwelfare/">
             <v-icon>mdi-instagram</v-icon>
         </v-btn>
-        <v-btn icon>
+        <v-btn icon >
             <v-icon>mdi-twitter</v-icon>
         </v-btn>
     </v-toolbar>

@@ -60,7 +60,7 @@
                                     </v-row>
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-textarea v-model="editedItem.intro" label="Short introduction to project" rows="2" :rules="[validRules.required]"></v-textarea>
+                                            <v-textarea v-model="editedItem.intro" outlined label="Short introduction to project" rows="2" :rules="[validRules.required]"></v-textarea>
                                         </v-col>
                                     </v-row>
                                     <v-row>
