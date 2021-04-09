@@ -209,7 +209,7 @@ export default {
     },
     methods: {
         initialize() {
-            axios.get("api/getImage")
+            axios.get("api/gallery")
                 .then(res => {
                     this.gallery = res.data;
                     this.loading = false

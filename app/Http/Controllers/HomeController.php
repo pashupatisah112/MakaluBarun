@@ -44,12 +44,6 @@ class HomeController extends Controller
         $subscribe->email=$request->email;
         $subscribe->save();
     }
-    
-    public function getProjects()
-    {
-        $project=Project::all();
-        return response()->json($project);
-    }
 
     public function getGallery()
     {
@@ -60,6 +54,17 @@ class HomeController extends Controller
     {
         $memory=Memory::get();
         return response()->json($memory);
+    }
+    public function getProjects(Request $request)
+    {
+        $project=null;
+        if($request->type=='All'){
+            $project=Project::all();
+        }else{
+            $project=Project::where('status',$request->type);
+        }
+        
+        return response()->json($project);
     }
     
 }

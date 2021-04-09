@@ -4,12 +4,12 @@
         <v-row justify="center">
             <v-col cols="12" lg="6" md="8" align="center">
                 <sequential-entrance fromTop>
-                    <p class="text-h5 text-sm-h6">Our Projects</p>
+                    <p class="text-lg-h5 text-sm-h6 font-weight-bold">{{projectType}}</p>
                 </sequential-entrance>
 
             </v-col>
         </v-row>
-        <v-row v-if="projects">
+        <v-row v-if="projects.length">
             <v-col cols="12" lg="6" md="6" v-for="item in projects" :key="item.id">
                 <sequential-entrance fromBottom>
 
@@ -65,18 +65,29 @@ export default {
     },
     data() {
         return {
+            projectType:'All Projects',
             projects: []
         }
     },
+    computed:{
+        key(){
+            return this.$route.params.key
+        }
+    },
     mounted() {
-        this.getProjects()
+        
+        console.log(this.key)
+        this.getSpecificProjects()
     },
     methods: {
-        getProjects() {
-            axios.get('api/getProjects')
-                .then(res => {
-                    this.projects = res.data
-                }).catch(err => console.log(err.response))
+        getSpecificProjects(){
+            axios.post('api/getProjects',{
+                'type':this.key
+            }).then(res=>{
+                console.log(res.data)
+                this.projects=res.data
+            })
+            .catch(err=>console.log(err.response))
         },
         getImage(item) {
             return "../storage/" + item.image

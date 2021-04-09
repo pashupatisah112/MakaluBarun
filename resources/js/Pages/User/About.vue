@@ -2,35 +2,53 @@
 <div>
     <v-container>
         <!-- short detail -->
-        <v-row justify="center">
+        <v-row justify="center" id="about">
             <v-col cols="12" lg="8" md="10" align="center">
-                <sequential-entrance fromTop>
-                    <v-icon color="sec">mdi-account-group</v-icon>
-                    <p class="text-h5 text-sm-h6">Who We Are</p>
-                </sequential-entrance>
+                <!-- <sequential-entrance fromTop> -->
+                <v-icon color="prime" size="100">mdi-account-group</v-icon>
+                <p class="text-h4 font-weight-bold">About Makalu Arun</p>
+                <!-- </sequential-entrance> -->
 
-                <sequential-entrance fromTop>
-                    <p class="body-2">
-                        Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
-                    </p>
-                </sequential-entrance>
+                <!-- <sequential-entrance fromTop> -->
+                <p class="body-1">
+                    Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
+                </p>
+                <!-- </sequential-entrance> -->
             </v-col>
         </v-row>
         <!-- end short detail -->
 
-        
-        <v-row>
+        <!-- founder detail -->
+        <v-row justify="center" id="founder-detail">
+            <p class="text-lg-h4 font-weight-bold">Founder Detail</p>
+        </v-row>
+        <!-- end founder details -->
+
+        <!-- working area -->
+        <v-row justify="center" class="mt-10" id="mission">
+            <v-col cols="12" lg="10" md="8" align="center">
+                <p class="text-h4 font-weight-bold">Our Mission</p>
+                <p class="body-1">
+                    We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process. A community where every individual has access to basic needs and requirements.
+                </p>
+            </v-col>
+
+        </v-row>
+        <!-- end working area -->
+
+        <!-- objective -->
+        <v-row id="goals">
             <v-col cols="12" align="center">
                 <sequential-entrance fromBottom>
 
-                    <p class="text-h5 text-sm-h6">Our Goals and Objectives</p>
+                    <p class="text-lg-h4 text-sm-h6 font-weight-bold">Our Goals and Objectives</p>
                 </sequential-entrance>
 
                 <v-row>
                     <v-col cols="6" lg="4" md="4" v-for="(item,i) in goals" :key="i">
                         <sequential-entrance>
 
-                            <v-card flat>
+                            <v-card flat color="transparent">
                                 <v-col align="center">
                                     <div class="obj prime-back elevation-10">
                                         <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
@@ -47,59 +65,6 @@
 
         </v-row>
         <!-- end objectives -->
-
-        <!-- team -->
-        <v-row justify="center" class="mt-16">
-            <p class="text-h5 text-sm-h6">Meet Our Team</p>
-        </v-row>
-        <v-row>
-            <v-col cols="12" lg="3" md="4" v-for="item in teams" :key="item.id" align="center">
-                <sequential-entrance>
-
-                    <v-card max-width="300">
-                        <v-col align="center">
-                            <v-list-item-avatar size="120" style="border:2px solid #8E5324;">
-                                <v-img :src="getImage(item)"></v-img>
-                            </v-list-item-avatar>
-                            <p class="title mb-n3">{{item.fname+' '}}{{item.lname}}</p>
-                            <v-card-subtitle>{{item.position}}</v-card-subtitle>
-                            <v-row justify="center">
-                                <v-btn fab dark x-small color="prime" :href="getFbLink(item)" target="_blank">
-                                    <v-icon>mdi-facebook</v-icon>
-                                </v-btn>
-                                <v-btn fab dark x-small class="mx-5" :href="getInstaLink(item)" color="prime" target="_blank">
-                                    <v-icon>mdi-instagram</v-icon>
-                                </v-btn>
-                                <v-btn fab dark x-small color="prime" :href="getTwitterLink(item)" target="_blank">
-                                    <v-icon>mdi-twitter</v-icon>
-                                </v-btn>
-                            </v-row>
-                            <v-btn v-if="!expand" icon color="primary" x-small @click="expand=true" class="mt-4">
-                                <v-icon>
-                                    mdi-chevron-down
-                                </v-icon>
-                            </v-btn>
-
-                            <v-expand-transition>
-                                <v-card v-show="expand" flat class="mt-10 position-absolute">
-                                    <v-card-text>
-                                        {{item.about}}
-                                    </v-card-text>
-                                </v-card>
-                            </v-expand-transition>
-
-                            <v-btn v-if="expand" icon color="primary" x-small @click="expand=false" class="mt-4">
-                                <v-icon>
-                                    mdi-chevron-up
-                                </v-icon>
-                            </v-btn>
-                        </v-col>
-                    </v-card>
-                    </sequential-entrance>
-
-            </v-col>
-        </v-row>
-        <!-- end team -->
 
         <v-dialog v-model="objDialog" max-width="400">
             <v-card flat>
@@ -174,9 +139,7 @@ export default {
             objDialog: false
         }
     },
-    mounted() {
-        this.getTeams()
-    },
+
     methods: {
         showDetail(item) {
             this.objIcon = item.icon
@@ -184,24 +147,6 @@ export default {
             this.objDetail = item.detail
             this.objDialog = true
         },
-        getTeams() {
-            axios.get('api/getTeams')
-                .then(res => {
-                    this.teams = res.data
-                }).catch(err => console.log(err.response))
-        },
-        getImage(item) {
-            return "../storage/" + item.image
-        },
-        getFbLink(item) {
-            return item.fb_link
-        },
-        getInstaLink(item) {
-            return item.insta_link
-        },
-        getTwitterLink(item) {
-            return item.twitter_link
-        }
     }
 }
 </script>

@@ -3,11 +3,45 @@
     <v-toolbar flat color="prime">
         <v-spacer></v-spacer>
         <div class="hidden-md-and-down">
+            <!-- home btn -->
             <v-btn text dark class="text-capitalize menu-text" large to="/home">Home</v-btn>
-            <v-btn text dark class="text-capitalize menu-text" large to="/about-us">About Us</v-btn>
-            <v-btn text dark class="text-capitalize menu-text" large to="/projects">Projects</v-btn>
+            <!-- end home btn -->
+            
+            <!-- about btn -->
+            <v-menu open-on-hover bottom offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn text dark class="text-capitalize menu-text" large v-bind="attrs" v-on="on">About Us</v-btn>
+                </template>
+
+                <v-list dark color="prime" >
+                    <v-list-item  :to="item.link" v-for="(item, index) in about" :key="index">
+                            <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <!-- end about btn -->
+            
+            <!-- project btn -->
+            <v-menu open-on-hover bottom offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn text dark class="text-capitalize menu-text" large  v-bind="attrs" v-on="on">Projects</v-btn>
+                </template>
+
+                <v-list dark color="prime" >
+                    <v-list-item v-for="(item, index) in project" :key="index" @click="goToProject(item)">
+                            <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <!-- end project btn -->
+
+            <!-- gallery btn -->
             <v-btn text dark class="text-capitalize menu-text" large to="/gallery">Gallery</v-btn>
+            <!-- end gallery btn -->
+
+            <!-- contact btn -->
             <v-btn text dark class="text-capitalize menu-text" large to="/contact-us">Contact</v-btn>
+            <!-- end contact btn -->
 
         </div>
         <div class="hidden-lg-and-up">
@@ -55,14 +89,57 @@ export default {
                     link: '/projects'
                 },
                 {
-                    title: 'Blogs',
-                    link: '/blogs'
+                    title: 'Gallery',
+                    link: '/gallery'
                 },
                 {
                     title: 'Contact Us',
-                    link: '/contact-us'
+                    link: '/contact'
+                },
+            ],
+            about: [{
+                    title: 'Who We Are',
+                    link: '/about#makalu'
+                },
+                {
+                    title: "Founder's Detail",
+                    link: '/about#founder-detail'
+                },
+                {
+                    title: 'Our Mission',
+                    link: '/about#mission'
+                },
+                {
+                    title: 'Our Objectives',
+                    link: '/about#goals'
+                },
+            ],
+            project: [
+                {
+                    title: 'All Projects',
+                    param:'All'
+                },
+                {
+                    title: 'Finished Projects',
+                    param:'Finished'
+                },
+                {
+                    title: "Ongoing Projects",
+                    param:"Current"
+                },
+                {
+                    title: 'Upcoming Projects',
+                    param: 'Upcoming'
                 },
             ]
+        }
+    },
+    methods:{
+        goToProject(item){
+            this.$router.push({
+                name:'ProjectList',
+                params:{key:item.param}
+            })
         }
     }
 }
@@ -73,7 +150,6 @@ export default {
     font-size: 20px;
     margin: 0 2px;
 }
-
 
 .router-link-active,
 .router-link-exact-active {
