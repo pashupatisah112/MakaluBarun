@@ -131,7 +131,7 @@ export default {
     methods: {
         paginate($event) {
             axios
-                .post("api/myMessages?page=" + $event.page, {
+                .post("/api/myMessages?page=" + $event.page, {
                     'per_page': $event.itemsPerPage
                 })
                 .then(res => {

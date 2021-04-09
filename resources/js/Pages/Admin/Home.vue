@@ -97,7 +97,7 @@ export default {
     },
     methods: {
         getDetail() {
-            axios.get('api/getDashboardDetail').
+            axios.get('/api/getDashboardDetail').
             then(res => {
                 this.project = res.data.project
                 this.slider=res.data.slider

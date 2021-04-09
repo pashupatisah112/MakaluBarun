@@ -6,7 +6,7 @@
             <v-col cols="12" lg="8" md="10" align="center">
                 <!-- <sequential-entrance fromTop> -->
                 <v-icon color="prime" size="100">mdi-account-group</v-icon>
-                <p class="text-h4 font-weight-bold">About Makalu Arun</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">About Makalu Arun</p>
                 <!-- </sequential-entrance> -->
 
                 <!-- <sequential-entrance fromTop> -->
@@ -20,14 +20,14 @@
 
         <!-- founder detail -->
         <v-row justify="center" id="founder-detail">
-            <p class="text-lg-h4 font-weight-bold">Founder Detail</p>
+            <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Founder Detail</p>
         </v-row>
         <!-- end founder details -->
 
         <!-- working area -->
         <v-row justify="center" class="mt-10" id="mission">
             <v-col cols="12" lg="10" md="8" align="center">
-                <p class="text-h4 font-weight-bold">Our Mission</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Our Mission</p>
                 <p class="body-1">
                     We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process. A community where every individual has access to basic needs and requirements.
                 </p>
@@ -41,7 +41,7 @@
             <v-col cols="12" align="center">
                 <sequential-entrance fromBottom>
 
-                    <p class="text-lg-h4 text-sm-h6 font-weight-bold">Our Goals and Objectives</p>
+                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Our Goals and Objectives</p>
                 </sequential-entrance>
 
                 <v-row>

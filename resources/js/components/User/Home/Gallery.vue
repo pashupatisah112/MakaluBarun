@@ -3,7 +3,7 @@
     <v-container>
         <v-row justify="center" class="mt-10">
             <v-col cols="12" lg="6" md="8" align="center">
-                <p class="text-h4 font-weight-bold">Memories</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Memories</p>
             </v-col>
         </v-row>
         <v-row justify="center" class="my-2">

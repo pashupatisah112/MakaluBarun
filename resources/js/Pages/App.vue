@@ -1,4 +1,5 @@
 <!--base template for every page-->
 <template>
-    <router-view></router-view>
+<!-- key loads different data in same component..like in projects page !!imp -->
+    <router-view :key="$route.fullPath"></router-view>
 </template>

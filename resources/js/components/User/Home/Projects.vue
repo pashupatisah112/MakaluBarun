@@ -3,7 +3,7 @@
     <v-container>
         <v-row justify="center" class="mt-10">
             <v-col cols="12" lg="6" md="8" align="center">
-                <p class="text-h4 font-weight-bold">Our Recent Projects</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Our Recent Projects</p>
                 <v-btn rounded dark color="prime" class="text-capitalize" @click="goToProjects">
                     View All Projects
                     <v-icon class="ml-2">mdi-arrow-right</v-icon>

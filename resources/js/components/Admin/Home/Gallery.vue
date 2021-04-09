@@ -209,7 +209,7 @@ export default {
     },
     methods: {
         initialize() {
-            axios.get("api/gallery")
+            axios.get("/api/gallery")
                 .then(res => {
                     this.gallery = res.data;
                     this.loading = false
@@ -323,7 +323,7 @@ export default {
                 }
             };
             axios
-                .post("api/addGalleryImage", data, settings)
+                .post("/api/addGalleryImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.gallery.splice(this.gallery.indexOf(this.selected), 1, res.data)
@@ -349,7 +349,7 @@ export default {
                 }
             };
             axios
-                .post("api/changeGalleryImage", data, settings)
+                .post("/api/changeGalleryImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.gallery.splice(this.gallery.indexOf(this.selected), 1, res.data)

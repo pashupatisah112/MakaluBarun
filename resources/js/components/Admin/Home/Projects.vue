@@ -444,7 +444,7 @@ export default {
         },
         paginate($event) {
             axios
-                .post("api/myProjects?page=" + $event.page, {
+                .post("/api/myProjects?page=" + $event.page, {
                     'per_page': $event.itemsPerPage
                 })
                 .then(res => {
@@ -543,7 +543,7 @@ export default {
             this.statusChangeDialog = true
         },
         changeProjectStatus() {
-            axios.post('api/changeProjectStatus/' + this.selected.id, {
+            axios.post('/api/changeProjectStatus/' + this.selected.id, {
                 'id': this.selected.id,
                 'status': this.project_status
             }).then(res => {
@@ -596,7 +596,7 @@ export default {
                 }
             };
             axios
-                .post("api/addProjectImage", data, settings)
+                .post("/api/addProjectImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.projects.data.splice(this.projects.data.indexOf(this.selected), 1, res.data)
@@ -622,7 +622,7 @@ export default {
                 }
             };
             axios
-                .post("api/changeImage", data, settings)
+                .post("/api/changeImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.stories.data.splice(this.stories.data.indexOf(this.selected), 1, res.data)

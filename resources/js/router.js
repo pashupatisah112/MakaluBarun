@@ -23,6 +23,7 @@ import Contact from "./Pages/User/Contact";
 import ProjectDetail from "./Pages/User/ProjectDetail";
 
 const routes = [
+    // 
     {
         path: "/ma-login",
         name: "AdminLogin",
@@ -115,14 +116,16 @@ const routes = [
 ];
 const userRoutes = [];
 const router = new VueRouter({
-    // mode: "history",//redirect to common route. see web route last line or you will face error on page refresh
-    // scrollBehavior: function(to, from, savedPosition) {
-    //     if (to.hash) {
-    //         return { selector: to.hash,behavior:'smooth' };
-    //     } else {
-    //         return { x: 0, y: 0 };
-    //     }
-    // },
+    mode: "history",//redirect to common route. see web route last line or you will face error on page refresh
+    scrollBehavior: function(to, from, savedPosition) {
+        if (to.hash) {
+            return { selector: to.hash,behavior:'smooth' };
+        } else {
+            return { x: 0, y: 0 };
+        }
+    },
+    //for history mode
+    base:'/',//send axios request like this..use '/' first (/api/getSomething) otherwise data will not be fetched for route params
     routes
 }); //global token check for authorization [mode: 'history',]add this to remo hashtag mode
 router.beforeEach((to, from, next) => {

@@ -3,7 +3,7 @@
     <v-container>
         <v-row justify="center" class="mt-2">
             <sequential-entrance fromTop>
-                <p class="text-h5 text-sm-h6">Contact Us</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5">Contact Us</p>
             </sequential-entrance>
         </v-row>
         <v-row>

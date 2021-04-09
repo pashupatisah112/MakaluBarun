@@ -209,7 +209,7 @@ export default {
     },
     methods: {
         initialize() {
-            axios.get("api/getImage")
+            axios.get("/api/getImage")
                 .then(res => {
                     this.memory = res.data;
                     this.loading = false
@@ -323,7 +323,7 @@ export default {
                 }
             };
             axios
-                .post("api/addMemoryImage", data, settings)
+                .post("/api/addMemoryImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.memory.splice(this.memory.indexOf(this.selected), 1, res.data)

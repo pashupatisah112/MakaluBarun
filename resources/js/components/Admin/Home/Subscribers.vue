@@ -40,7 +40,7 @@ export default {
     methods: {
         paginate($event) {
             axios
-                .post("api/mySubscribers?page=" + $event.page, {
+                .post("/api/mySubscribers?page=" + $event.page, {
                     'per_page': $event.itemsPerPage
                 })
                 .then(res => {

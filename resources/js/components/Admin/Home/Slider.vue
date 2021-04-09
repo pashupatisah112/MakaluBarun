@@ -247,7 +247,7 @@ export default {
     methods: {
         initialize() {
             axios
-                .get("api/sliders")
+                .get("/api/sliders")
                 .then(res => {
                     this.sliders = res.data;
                     this.loading = false
@@ -362,7 +362,7 @@ export default {
                 }
             };
             axios
-                .post("api/addSliderImage", data, settings)
+                .post("/api/addSliderImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.slider.splice(this.slider.indexOf(this.selected), 1, res.data)
@@ -388,7 +388,7 @@ export default {
                 }
             };
             axios
-                .post("api/changeSliderImage", data, settings)
+                .post("/api/changeSliderImage", data, settings)
                 .then(res => {
                     this.selected = res.data
                     this.slider.splice(this.slider.indexOf(this.selected), 1, res.data)

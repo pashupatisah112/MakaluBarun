@@ -56,19 +56,19 @@
                             </v-btn>
                         </template>
                         <v-list dense>
-                            <v-list-item dense link to="/home">
+                            <v-list-item dense to="/home">
                                 <v-list-item-title>Home</v-list-item-title>
                             </v-list-item>
-                            <v-list-item dense link to="/about#makalu">
+                            <v-list-item dense to="/about">
                                 <v-list-item-title>About Us</v-list-item-title>
                             </v-list-item>
                             <v-list-item dense @click="goToProjects">
                                 <v-list-item-title>Projects</v-list-item-title>
                             </v-list-item>
-                            <v-list-item dense link to="/gallery">
+                            <v-list-item dense to="/gallery">
                                 <v-list-item-title>Gallery</v-list-item-title>
                             </v-list-item>
-                            <v-list-item dense link to="/contact">
+                            <v-list-item dense to="/contact-us">
                                 <v-list-item-title >Contact Us</v-list-item-title>
                             </v-list-item>
                         </v-list>

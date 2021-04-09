@@ -4,7 +4,7 @@
         <v-row justify="center">
             <v-col cols="12" lg="6" md="8" align="center">
                 <sequential-entrance fromTop>
-                    <p class="text-lg-h5 text-sm-h6 font-weight-bold">{{key}} Projects</p>
+                    <p class="text-lg-h5 text-md-h5 text-sm-h6 font-weight-bold">{{key}} Projects</p>
                 </sequential-entrance>
 
             </v-col>
@@ -78,7 +78,7 @@ export default {
     },
     methods: {
         getSpecificProjects() {
-            axios.post('api/getProjects', {
+            axios.post('/api/getProjects', {
                     'type': this.key
                 }).then(res => {
                     this.projects = res.data
