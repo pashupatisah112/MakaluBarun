@@ -8,7 +8,8 @@
         </v-row>
         <v-row justify="center">
             <vueper-slides style="width:100%;" :slide-ratio="1 / 4" autoplay :arrows="false" class="no-shadow" :visible-slides="3" slide-multiple :gap="3" :breakpoints="{ 961: { visibleSlides: 2, slideMultiple: 2 },376: { visibleSlides: 1, slideMultiple: 1 } }">
-                    <vueper-slide v-for="(slide, i) in memory" :key="i" :image="getImage(slide)" style="border:2px solid #BE9F50" />
+                    <vueper-slide v-for="(item, i) in memory" :key="i" :image="getImage(item)" style="border:2px solid #BE9F50;color:white">
+                    </vueper-slide>
             </vueper-slides>
         </v-row>
     </v-container>
@@ -39,6 +40,16 @@
             </v-img>
         </v-row>
     </v-container>
+    <v-overlay absolute :value="overlay">
+        <v-card max-width="600" max-height="400" color="transparent">
+                <v-btn icon @click="overlay = false">
+                    <v-icon color="white">mdi-close</v-icon>
+                </v-btn>
+                    <v-img :src="getImage(image)" ></v-img>
+            
+
+        </v-card>
+    </v-overlay>
 </div>
 </template>
 
@@ -57,6 +68,8 @@ export default {
         return {
             memory: [],
             selectedImage: '',
+            overlay: false,
+            image: ''
         }
     },
     mounted() {
@@ -74,8 +87,20 @@ export default {
             return '../storage/' + item.image
         },
         openImage(item) {
-
+            this.image = item
+            this.overlay = true
+        
         }
     }
 }
 </script>
+<style scoped>
+.v-card--reveal {
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+    opacity: .5;
+    position: absolute;
+    width: 100%;
+}
+</style>

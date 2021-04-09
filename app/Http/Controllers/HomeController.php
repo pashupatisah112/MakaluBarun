@@ -61,7 +61,7 @@ class HomeController extends Controller
         if($request->type=='All'){
             $project=Project::all();
         }else{
-            $project=Project::where('status',$request->type);
+            $project=Project::where('status',$request->type)->get();
         }
         
         return response()->json($project);

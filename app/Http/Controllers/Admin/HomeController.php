@@ -19,13 +19,11 @@ class HomeController extends Controller
 {
     public function getDashboardDetail()
     {
-        $story_count=Story::count();
         $project_count=Project::count();
-        $team_count=Team::count();
         $slider_count=Slider::count();
         $message_count=Messages::count();
         $subscriber_count=Subscriber::count();
-        return response()->json(['story'=>$story_count,'project'=>$project_count,'team'=>$team_count,'slider'=>$slider_count,'message'=>$message_count,'subscribe'=>$subscriber_count]);
+        return response()->json(['project'=>$project_count,'slider'=>$slider_count,'message'=>$message_count,'subscribe'=>$subscriber_count]);
     }
     public function getAdmin()
     {

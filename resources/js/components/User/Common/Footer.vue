@@ -66,8 +66,8 @@
                     </v-card-title>
                     <v-row>
                         <v-col align="center">
-                            <v-img src="../images/logo.png" max-width="75"></v-img>
-                            <p>title</p>
+                            <v-img src="../images/partner.png" max-width="75" @click="goToAlpine"></v-img>
+                            <p>Family Alpine Trek</p>
                         </v-col>
 
                     </v-row>
@@ -134,6 +134,9 @@ export default {
                 }).catch(err => console.log(err.response))
             }
 
+        },
+        goToAlpine(){
+             window.location.replace("http://www.alpinetrek.com.np/")
         }
     }
 }
