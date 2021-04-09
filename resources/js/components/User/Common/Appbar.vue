@@ -1,43 +1,45 @@
 <template>
 <div>
-    <v-toolbar color="white" class="px-10 position-sticky">
-        <v-btn text color="prime">
+    <v-toolbar color="white" class="px-10 position-sticky hidden-sm-and-down">
+        <v-btn text color="prime" small>
             <v-icon class="mr-5">mdi-phone</v-icon>
             <span class="font-weight-bold">+977 9841337185</span>
         </v-btn>
 
-        <v-btn text class="mx-10 text-lowercase" color="prime">
+        <v-btn text class="mx-10 text-lowercase" color="prime" small>
             <v-icon class="mr-5">mdi-email</v-icon>
             <span class="font-weight-bold">info@mavwelfare.org</span>
         </v-btn>
 
         <v-spacer></v-spacer>
 
-        <v-btn icon href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank">
+        <v-btn class="mx-2" icon href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank" small>
             <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn icon target="_blank" href="https://www.instagram.com/_makalusocialwelfare/">
+        <v-btn class="mx-2" icon target="_blank" href="https://www.instagram.com/_makalusocialwelfare/" small>
             <v-icon>mdi-instagram</v-icon>
         </v-btn>
-        <v-btn icon >
+        <v-btn class="mx-2" icon small>
             <v-icon>mdi-twitter</v-icon>
         </v-btn>
     </v-toolbar>
 
-    <v-divider style="border:1px solid #BE9F50"></v-divider>
+    <v-divider style="border:1px solid #BE9F50 hidden-sm-and-down"></v-divider>
 
-    <v-toolbar flat height="120" class="px-10">
+    <v-toolbar flat height="120" class="px-10 hidden-sm-and-down">
         <v-img src="../images/logo.png" max-width="100"></v-img>
         <p class="text-h4 prime-text font-weight-bold mx-5">Makalu Arun Valley Social Welfare</p>
         <v-spacer></v-spacer>
 
-        <v-btn rounded dark color="prime" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
-            <v-icon>mdi-currency-usd</v-icon>
-            Donate
-        </v-btn>
+        <v-expand-x-transition>
+            <v-btn rounded dark color="prime" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
+                <v-icon>mdi-currency-usd</v-icon>
+                Donate
+            </v-btn>
+        </v-expand-x-transition>
     </v-toolbar>
-
-    <menubar></menubar>
+    <menubar>
+    </menubar>
 
     <v-dialog v-model="donateDialog" max-width="500">
         <v-card>
@@ -53,7 +55,7 @@
                 <span><b>Branch:</b> XYZ Branch</span><br>
             </v-card-text>
             <v-card-actions>
-                <v-btn dark color="sec" to="/contact-us" @click="donateDialog=false" rounded class="text-capitalize">Contact Us</v-btn>
+                <v-btn dark color="prime" to="/contact-us" @click="donateDialog=false" rounded class="text-capitalize">Contact Us</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>

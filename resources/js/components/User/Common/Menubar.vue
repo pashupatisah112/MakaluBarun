@@ -1,8 +1,10 @@
 <template>
-<div>
+<div style="font-family:Lato">
     <v-toolbar flat color="prime">
+        <v-img src="../images/logo.png" max-width="45" class="hidden-md-and-up"></v-img>
+        <p class="body-1 white--text mt-4 ml-3 hidden-md-and-up">MAV Welfare</p>
         <v-spacer></v-spacer>
-        <div class="hidden-md-and-down">
+        <div class="hidden-sm-and-down">
             <!-- home btn -->
             <v-btn text dark class="text-capitalize menu-text" large to="/home">Home</v-btn>
             <!-- end home btn -->
@@ -44,7 +46,7 @@
             <!-- end contact btn -->
 
         </div>
-        <div class="hidden-lg-and-up">
+        <div class="hidden-md-and-up">
             <template>
                 <div class="text-center">
                     <v-menu transition="scale-transition">
@@ -54,13 +56,20 @@
                             </v-btn>
                         </template>
                         <v-list dense>
-                            <v-list-item v-for="(item,i) in menu" :key="i" dense link :to="item.link">
-                                <v-list-item-title v-text="item.title"></v-list-item-title>
+                            <v-list-item dense link to="/home">
+                                <v-list-item-title>Home</v-list-item-title>
                             </v-list-item>
-                            <v-list-item dense link @click="donateDialog=true">
-                                <v-list-item-title>
-                                    <v-icon>mdi-currency-usd</v-icon>Donate
-                                </v-list-item-title>
+                            <v-list-item dense link to="/about#makalu">
+                                <v-list-item-title>About Us</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item dense @click="goToProjects">
+                                <v-list-item-title>Projects</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item dense link to="/gallery">
+                                <v-list-item-title>Gallery</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item dense link to="/contact">
+                                <v-list-item-title >Contact Us</v-list-item-title>
                             </v-list-item>
                         </v-list>
                     </v-menu>
@@ -139,6 +148,12 @@ export default {
             this.$router.push({
                 name:'ProjectList',
                 params:{key:item.param}
+            })
+        },
+        goToProjects(){
+            this.$router.push({
+                name:'ProjectList',
+                params:{key:'All'}
             })
         }
     }

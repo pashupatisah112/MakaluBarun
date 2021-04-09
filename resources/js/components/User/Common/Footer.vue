@@ -31,7 +31,7 @@
             <v-col cols="12" lg="2" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title>
-                        QUICK LINKS
+                        Quick Links
                     </v-card-title>
                     <v-btn text small class="my-1" to="/home">
                         Home
@@ -62,14 +62,13 @@
             <v-col cols="12" lg="3" md="6">
                 <v-card flat dark color="transparent">
                     <v-card-title>
-                        We are associated with
+                        Our Association
                     </v-card-title>
                     <v-row>
-                        <v-col align="center">
-                            <v-img src="../images/partner.png" max-width="75" @click="goToAlpine"></v-img>
+                        <v-col>
+                            <v-img src="../images/partner.png" max-width="75" @click="goToAlpine" class="mx-5 assoc"></v-img>
                             <p>Family Alpine Trek</p>
                         </v-col>
-
                     </v-row>
 
                 </v-card>
@@ -94,7 +93,7 @@
             <!-- end newsletter -->
         </v-row>
         <v-row justify="center">
-            <p class="body-2 text-center white--text">Copyright 2021 All rights reserved. Developed by <span style="color:#66BB6A">Fiftech Zone.</span></p>
+            <p class="body-2 text-center white--text">Copyright <v-icon small color="white">mdi-copyright</v-icon> 2021 Makalu Arun Valley Social Welfare.<br> Developed by <span style="color:blue;cursor:pointer" class="font-weight-bold" @click="toFiftech">Fiftech Zone.</span></p>
         </v-row>
         <!-- snackbar -->
         <v-snackbar v-model="snackbar" timeout="3000">
@@ -137,7 +136,15 @@ export default {
         },
         goToAlpine(){
              window.location.replace("http://www.alpinetrek.com.np/")
+        },
+        toFiftech(){
+             window.location.replace("https://www.facebook.com/fiftechzone")
         }
     }
 }
 </script>
+<style scoped>
+    .assoc{
+        cursor: pointer;
+    }
+</style>

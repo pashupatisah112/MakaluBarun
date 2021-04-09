@@ -14,7 +14,7 @@
 
                 <v-card-actions>
                     <sequential-entrance fromBottom delay="2000">
-                        <v-btn rounded dark color="sec" width="150" class="text-capitalize" to="/projects">See More</v-btn>
+                        <v-btn rounded dark color="sec" width="150" class="text-capitalize" @click="goToProjects">See More</v-btn>
                         </sequential-entrance>
                 </v-card-actions>
 
@@ -44,6 +44,12 @@ export default {
         },
         getImage(item) {
             return "../storage/" + item.image
+        },
+        goToProjects(){
+            this.$router.push({
+                name:'ProjectList',
+                params:{key:'All'}
+            })
         }
     }
 }

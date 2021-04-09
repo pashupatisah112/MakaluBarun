@@ -1,10 +1,10 @@
 <template>
-<div>
-    <v-container class="mt-10">
-        <v-row justify="center">
+<div style="background-color:#EAEAEA">
+    <v-container>
+        <v-row justify="center" class="mt-10">
             <v-col cols="12" lg="6" md="8" align="center">
                 <p class="text-h4 font-weight-bold">Our Recent Projects</p>
-                <v-btn rounded dark color="prime" class="text-capitalize" to="/projects">
+                <v-btn rounded dark color="prime" class="text-capitalize" @click="goToProjects">
                     View All Projects
                     <v-icon class="ml-2">mdi-arrow-right</v-icon>
                 </v-btn>
@@ -68,6 +68,12 @@ export default {
                     'id': item.id,
                     'title': item.title
                 }
+            })
+        },
+        goToProjects(){
+            this.$router.push({
+                name:'ProjectList',
+                params:{key:'All'}
             })
         }
     }
