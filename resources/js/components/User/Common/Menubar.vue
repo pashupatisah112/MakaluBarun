@@ -1,8 +1,8 @@
 <template>
-<div style="font-family:Lato">
+<div>
     <v-toolbar flat color="prime">
         <v-img src="../images/logo.png" max-width="45" class="hidden-md-and-up"></v-img>
-        <p class="body-1 white--text mt-4 ml-3 hidden-md-and-up">MAV Welfare</p>
+        <p class="body-1 white--text mt-4 ml-3 hidden-md-and-up"><span class="title-font">MAV Welfare</span></p>
         <v-spacer></v-spacer>
         <div class="hidden-sm-and-down">
             <!-- home btn -->
@@ -52,7 +52,7 @@
                     <v-menu transition="scale-transition">
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn icon dark color="sec" x-large v-bind="attrs" v-on="on">
-                                <v-icon>mdi-menu</v-icon>
+                                <v-icon color="white">mdi-menu</v-icon>
                             </v-btn>
                         </template>
                         <v-list dense>

@@ -3,7 +3,7 @@
     <v-container>
         <v-row justify="center" class="mt-10">
             <v-col cols="12" lg="6" md="8" align="center">
-                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Memories</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Memories</span></p>
             </v-col>
         </v-row>
         <v-row justify="center" class="my-2">
@@ -37,18 +37,18 @@
                     <v-row class="py-16">
                         <v-col cols="12" lg="4" md="4" align="center">
                             <v-icon size="50" color="white">mdi-map-marker</v-icon>
-                            <p class="text-h5 font-weight-bold">Address</p>
-                            <p class="body-1">Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal</p>
+                            <p class="text-h5 font-weight-bold"><span class="title-font">Address</span></p>
+                            <p class="body-1"><span class="title-font">Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal</span></p>
                         </v-col>
                         <v-col cols="12" lg="4" md="4" align="center">
                             <v-icon size="50" color="white">mdi-phone</v-icon>
-                            <p class="text-h5 font-weight-bold">Phone</p>
-                            <p class="title">+977 9841337185</p>
+                            <p class="text-h5 font-weight-bold"><span class="title-font">Phone</span></p>
+                            <p class="title"><span class="title-font">+977 9841337185</span></p>
                         </v-col>
                         <v-col cols="12" lg="4" md="4" align="center">
                             <v-icon size="50" color="white">mdi-email</v-icon>
-                            <p class="text-h5 font-weight-bold">Email</p>
-                            <p class="title">info@mavwelfare.org</p>
+                            <p class="text-h5 font-weight-bold"><span class="title-font">Email</span></p>
+                            <p class="title"><span class="title-font">info@mavwelfare.org</span></p>
                         </v-col>
                     </v-row>
                 </v-container>

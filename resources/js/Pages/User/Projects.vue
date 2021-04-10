@@ -4,7 +4,7 @@
         <v-row justify="center">
             <v-col cols="12" lg="6" md="8" align="center">
                 <sequential-entrance fromTop>
-                    <p class="text-lg-h5 text-md-h5 text-sm-h6 font-weight-bold">{{key}} Projects</p>
+                    <p class="text-lg-h5 text-md-h5 text-sm-h6 font-weight-bold"><span class="title-font">{{key}} Projects</span></p>
                 </sequential-entrance>
 
             </v-col>
@@ -15,25 +15,28 @@
                     <v-container class="elevation-2">
                         <v-row justify="center">
                             <v-col cols="12" lg="3" md="12" class="pa-0" style="background-color:#BE9F50;color:white" align="center">
-                                <v-chip x-small dark class="mt-16">{{item.status}}</v-chip>
+                                <v-chip x-small dark class="mt-16"><span class="title-font">{{item.status}}</span></v-chip>
 
-                                <p class=" text-h4 font-weight-bold mb-0">{{item.title}}</p>
-                                <v-col>
-                                    <v-btn color="white" text>
-                                        <v-icon color="white">mdi-clock</v-icon>
-                                        <p class="body-2 mt-5 ml-2">{{item.ended_date}} </p>
-                                    </v-btn>
-
-                                    <v-btn color="white" text>
+                                <p class=" text-h4 font-weight-bold mb-0"><span class="title-font">{{item.title}}</span></p>
+                                <v-card flat color="transparent" >
+                                 
+                                    <v-row class="px-5" justify="center">
+                                         <v-icon color="white">mdi-clock</v-icon>
+                                        <p class="mt-5 ml-2 white--text caption">
+                                        <span class="title-font">{{item.start_date}} to <span v-if="item.status=='Finished'">{{item.ended_date}}</span><span v-if="item.status=='Current'">Ongoing</span></span></p>
+                                    </v-row>
+                                    <v-row class="px-5 mt-n8" justify="center">
                                         <v-icon color="white">mdi-map-marker</v-icon>
-                                        <p class="body-2 mt-5 ml-2">{{item.location}}</p>
-                                    </v-btn>
-                                </v-col>
+                                        <p class="mt-5 ml-2 white--text caption"><span class="title-font">{{item.location}}</span></p>
+                                    </v-row>
+                                </v-card>
 
                             </v-col>
                             <v-col cols="12" lg="5" md="12" class="px-10 pt-5" align="center">
                                 <p class="body-2">
-                                    {{item.intro}}
+                                    <span class="para-font">
+                                        {{item.intro}}
+                                    </span>    
                                 </p>
                                 <v-btn light outlined rounded color="prime" class="mx-auto" @click="goToDetail(item)">See More</v-btn>
                             </v-col>

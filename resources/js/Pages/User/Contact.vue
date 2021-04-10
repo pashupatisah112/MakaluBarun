@@ -3,32 +3,25 @@
     <v-container>
         <v-row justify="center" class="mt-2">
             <sequential-entrance fromTop>
-                <p class="text-lg-h4 text-md-h4 text-sm-h5">Contact Us</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h4 font-weight-bold"><span class="title-font">Contact Us</span></p>
             </sequential-entrance>
         </v-row>
-        <v-row>
-            <v-col cols="12" lg="6" md="6" align="center">
-                <v-row>
-                    <v-col align="center">
-                        <v-icon size="50" color="prime">mdi-map-marker</v-icon>
-                        <p class="body-2 prime-text">Address</p>
-                        <p class="body-2">Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal</p>
-                    </v-col>
-                </v-row>
-                <v-row>
-                    <v-col align="center">
-                        <v-icon size="50" color="prime">mdi-phone</v-icon>
-                        <p class="bpdy-2 prime-text">Phone</p>
-                        <p class="body-2">+977 9841337185</p>
-                    </v-col>
-                </v-row>
-                <v-row>
-                    <v-col align="center">
-                        <v-icon size="50" color="prime">mdi-email</v-icon>
-                        <p class="bpdy-2 prime-text">Email</p>
-                        <p class="body-2">info@mavwelfare.org</p>
-                    </v-col>
-                </v-row>
+        <v-row justify="center">
+            <v-col cols="12" lg="6" md="6">
+                <v-list two-line>
+                    <v-list-item v-for="(item,i) in contact" :key="i">
+                        <v-list-item-icon>
+                            <v-icon color="prime" size="50">
+                                {{item.icon}}
+                            </v-icon>
+                        </v-list-item-icon>
+
+                        <v-list-item-content>
+                            <v-list-item-title class="text-h5 font-weight-bold prime-text"><span class="title-font">{{item.title}}</span></v-list-item-title>
+                            <v-list-item-subtitle class="body-1"><span class="para-font" v-html="item.subtitle"></span></v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
             </v-col>
 
             <v-col cols="12" lg="6" md="6" align="center">
@@ -45,7 +38,7 @@
                             <p class="mb-0 text-left mx-5 mt-n3">Message</p>
                             <v-textarea v-model="message" outlined placeholder="Write your message here..." class="mx-5" :rules="[validRules.required]"></v-textarea>
 
-                            <v-btn class="mb-5 mx-auto text-capitalize" rounded dark color="sec" @click="sendMessage">Submit</v-btn>
+                            <v-btn class="mb-5 mx-auto text-capitalize block" rounded dark color="prime" @click="sendMessage">Submit</v-btn>
                         </v-form>
 
                     </v-card>
@@ -82,7 +75,24 @@ export default {
             validRules: {
                 required: value => !!value || "Required.",
             },
-            snackbar: false
+            snackbar: false,
+            contact: [{
+                    icon: 'mdi-map-marker',
+                    title: 'Address',
+                    subtitle: 'Chetanshilmarg-26 Ranibari<br>Kathmandu, Nepal'
+                },
+                {
+                    icon: 'mdi-phone',
+                    title: 'Phone',
+                    subtitle: '+977 9841337185'
+                },
+                {
+                    icon: 'mdi-email',
+                    title: 'Email',
+                    subtitle: 'info@mavwelfare.org'
+                }
+
+            ]
         }
     },
     methods: {

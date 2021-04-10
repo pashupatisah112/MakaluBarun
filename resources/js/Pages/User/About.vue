@@ -6,12 +6,14 @@
             <v-col cols="12" lg="8" md="10" align="center">
                 <!-- <sequential-entrance fromTop> -->
                 <v-icon color="prime" size="100">mdi-account-group</v-icon>
-                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">About Makalu Arun</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
                 <!-- </sequential-entrance> -->
 
                 <!-- <sequential-entrance fromTop> -->
                 <p class="body-1">
+                    <span class="para-font">
                     Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
+                    </span>
                 </p>
                 <!-- </sequential-entrance> -->
             </v-col>
@@ -20,16 +22,18 @@
 
         <!-- founder detail -->
         <v-row justify="center" id="founder-detail">
-            <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Founder Detail</p>
+            <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Founder Detail</span></p>
         </v-row>
         <!-- end founder details -->
 
         <!-- working area -->
         <v-row justify="center" class="mt-10" id="mission">
             <v-col cols="12" lg="10" md="8" align="center">
-                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Our Mission</p>
+                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Our Mission</span></p>
                 <p class="body-1">
+                    <span class="para-font">
                     We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process. A community where every individual has access to basic needs and requirements.
+                    </span>
                 </p>
             </v-col>
 
@@ -41,7 +45,7 @@
             <v-col cols="12" align="center">
                 <sequential-entrance fromBottom>
 
-                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold">Our Goals and Objectives</p>
+                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Our Goals and Objectives</span></p>
                 </sequential-entrance>
 
                 <v-row>
@@ -53,7 +57,7 @@
                                     <div class="obj prime-back elevation-10">
                                         <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
                                     </div>
-                                    <p class="body-1 mt-2 obj-text" @click="showDetail(item)">{{item.title}}</p>
+                                    <p class="body-1 mt-2 obj-text" @click="showDetail(item)"><span class="title-font">{{item.title}}</span></p>
 
                                 </v-col>
                             </v-card>

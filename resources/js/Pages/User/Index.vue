@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <v-app >
+    <div >
+        <v-app style="font-family:Lato">
             <appbar></appbar>
             <v-main>
                 <router-view></router-view>

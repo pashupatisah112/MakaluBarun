@@ -2,20 +2,21 @@
 <div>
     <v-container class="mt-5 mb-10">
         <v-row justify="center">
-            <p class="text-lg-h4 text-md-h5 text-sm-h6 font-weight-bold">{{title}}</p>
+            <p class="text-lg-h4 text-md-h5 text-sm-h6 font-weight-bold"><span class="title-font">{{title}}</span></p>
         </v-row>
         <v-row justify="space-between">
-            <p class="body-2 text-secondary"><b>Started Date</b>: {{project.start_date}}</p>
-            <p class="body-2 text-secondary"><b>Location: </b>{{project.location}}</p>
-            <p class="body-2 text-secondary"><b>Ended Date: </b> {{project.ended_date}}</p>
+            <p class="body-2 text-secondary"><b><span class="title-font">Started Date:</span></b> {{project.start_date}}</p>
+            <p class="body-2 text-secondary"><b><span class="title-font">Location:</span> </b> {{project.location}}</p>
+            <p class="body-2 text-secondary"><b><span class="title-font">Ended Date:</span> </b> {{project.ended_date}}</p>
         </v-row>
         <v-row>
+
             <v-col cols="12" class="pa-0">
                 <div style="border:2px solid #BE9F50;float:left" class="mr-5 mb-b">
-                    <v-img :src="getImage(project)" max-width="400"></v-img>
+                    <v-img :src="getImage(project)" alt="project-image" max-width="400"></v-img>
                 </div>
 
-                <div v-html="project.detail" class="mr-5"></div>
+                <div v-html="project.detail" class="mr-5 para-font"></div>
 
             </v-col>
 
@@ -85,21 +86,22 @@ export default {
         }
     },
     mounted() {
-        this.url = 'https://mavwelfare.org/#/project/' + this.id + '/' + this.title
+        this.url = 'https://mavwelfare.org/project/' + this.id + '/' + this.title
         this.getProjectDetail()
     },
     methods: {
         getProjectDetail() {
-            axios.post('api/getProjectDetail', {
+            axios.post('/api/getProjectDetail', {
                     'id': this.id
                 })
                 .then(res => {
                     this.project = res.data
+                    console.log(this.project)
                 }).catch(err => console.log(err.response))
         },
         getImage(project) {
-            return '../storage/' + project.image
-        }
+            return "../storage/" + project.image
+        },
     }
 }
 </script>

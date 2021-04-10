@@ -27,3 +27,9 @@
     width:200px;
     height:75px;
 }
+.title-font{
+    font-family: Lato !important;
+}
+.para-font{
+    font-family: Poppins !important;
+}

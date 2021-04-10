@@ -28,7 +28,7 @@
 
     <v-toolbar flat height="120" class="px-10 hidden-sm-and-down">
         <v-img src="../images/logo.png" max-width="100"></v-img>
-        <p class="text-h4 prime-text font-weight-bold mx-5">Makalu Arun Valley Social Welfare</p>
+        <p class="text-h4 prime-text font-weight-bold mx-5"><span class="title-font">Makalu Arun Valley Social Welfare</span></p>
         <v-spacer></v-spacer>
 
         <v-expand-x-transition>

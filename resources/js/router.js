@@ -125,7 +125,9 @@ const router = new VueRouter({
         }
     },
     //for history mode
-    base:'/',//send axios request like this..use '/' first (/api/getSomething) otherwise data will not be fetched for route params
+    //send axios request like this..use '/' first (/api/getSomething) otherwise data will not be fetched for route params
+    //also add a default route added as in web.php..last route
+    base:'/',
     routes
 }); //global token check for authorization [mode: 'history',]add this to remo hashtag mode
 router.beforeEach((to, from, next) => {

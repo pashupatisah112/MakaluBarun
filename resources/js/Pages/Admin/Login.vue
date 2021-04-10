@@ -47,7 +47,8 @@ export default {
                     name: 'AdminDashboard',
                 })
             }).catch(err => {
-                this.loginError = err.response.data.status
+                // this.loginError = err.response.data.status
+                this.loginError='Username or password is wrong.'
             })
             }
             

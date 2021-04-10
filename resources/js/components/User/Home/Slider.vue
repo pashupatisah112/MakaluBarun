@@ -4,12 +4,12 @@
         <v-carousel-item v-for="(item,i) in promo" :key="i" :src="getImage(item)" :aspect-ratio="16/9" reverse-transition="fade-transition" transition="fade-transition">
             <v-card max-width="500" color="rgb(142, 83, 36, 0.4)" flat style="position:absolute;bottom:20%;" class="mx-16">
                 <sequential-entrance fromTop delay="1000">
-                    <v-card-subtitle class="mb-n8 text-h6 text-uppercase">{{item.title}}</v-card-subtitle>
+                    <v-card-subtitle class="mb-n8 text-h6 text-uppercase"><span class="para-font">{{item.title}}</span></v-card-subtitle>
                 </sequential-entrance>
 
                 <sequential-entrance delay="2000">
 
-                    <v-card-title class="text-lg-h3 text-md-h4 text-sm-h5 text-uppercase">{{item.tag}}</v-card-title>
+                    <v-card-title class="text-lg-h3 text-md-h4 text-sm-h5 text-uppercase para-font"><span class="para-font">{{item.tag}}</span></v-card-title>
                 </sequential-entrance>
 
                 <v-card-actions>
