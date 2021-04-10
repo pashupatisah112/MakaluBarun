@@ -41,7 +41,7 @@
                                         <v-col cols="6">
                                             <v-menu ref="endedDateRef" v-model="endedDateRef" :close-on-content-click="false" transition="scale-transition" offset-y min-width="auto">
                                                 <template v-slot:activator="{ on, attrs }">
-                                                    <v-text-field v-model="editedItem.ended_date" dense outlined label="Ended date" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on" ></v-text-field>
+                                                    <v-text-field v-model="editedItem.ended_date" dense outlined label="Ended date" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
                                                 </template>
                                                 <v-date-picker ref="picker" v-model="editedItem.ended_date" :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="saveEndedDate"></v-date-picker>
                                             </v-menu>
@@ -65,7 +65,7 @@
                                     </v-row>
                                     <v-row>
                                         <v-col cols="12" align="center">
-                                            <froala v-model="editedItem.detail" :tag="'textarea'" :config="config"></froala>
+                                            <vue-editor v-model="editedItem.detail"></vue-editor>
                                             <div style="color:red">{{detailError}}</div>
 
                                         </v-col>
@@ -261,9 +261,14 @@
 </template>
 
 <script>
-import VueFroala from 'vue-froala-wysiwyg';
+import {
+    VueEditor
+} from "vue2-editor";
 
 export default {
+    components: {
+        VueEditor
+    },
     data() {
         return {
             //datatable data loading
@@ -289,54 +294,6 @@ export default {
                     title: 'Upcoming'
                 },
             ],
-            config: {
-                language: "en", // localization
-                placeholderText: "Share what you've g",
-                zIndex: 2501,
-                charCounterMax: 5000,
-                toolbarSticky: false,
-                quickInsertEnabled: false,
-                heightMin: 200,
-
-                toolbarButtons: {
-                    // name for block of buttons
-
-                    moreParagraph: {
-                        buttons: [
-                            "paragraphFormat",
-                            "formatOLSimple",
-                            "formatUL",
-                            "alignLeft",
-                            "alignCenter",
-                            "alignRight",
-                            "alignJustify",
-                        ],
-                        align: "left",
-                        buttonsVisible: 7
-                    },
-                    moreText: {
-                        // buttons you need on this block
-                        buttons: [
-                            "bold",
-                            "italic",
-                            "underline",
-                            "textColor",
-                            "inlineClass",
-                            "backgroundColor",
-                        ],
-                        align: "left",
-                        buttonsVisible: 7
-                    },
-                    moreRich: {
-                        buttons: [
-                            "insertLink",
-                        ],
-                        align: "left",
-                        buttonsVisible: 1
-                    },
-                },
-
-            },
 
             //deleting
             deleteDialog: false,
@@ -403,7 +360,7 @@ export default {
                 ended_date: "",
                 location: "",
                 status: "",
-                intro:"",
+                intro: "",
                 detail: "",
             },
             defaultItem: {
@@ -412,7 +369,7 @@ export default {
                 start_date: "",
                 ended_date: "",
                 location: "",
-                intro:"",
+                intro: "",
                 status: "",
                 detail: "",
             }
@@ -494,7 +451,7 @@ export default {
                                 'start_date': this.editedItem.start_date,
                                 'ended_date': this.editedItem.ended_date,
                                 'location': this.editedItem.location,
-                                'intro':this.editedItem.intro,
+                                'intro': this.editedItem.intro,
                                 'status': this.editedItem.status,
                                 'detail': this.editedItem.detail,
                             })
@@ -518,7 +475,7 @@ export default {
                                 'start_date': this.editedItem.start_date,
                                 'ended_date': this.editedItem.ended_date,
                                 'location': this.editedItem.location,
-                                'intro':this.editedItem.intro,
+                                'intro': this.editedItem.intro,
                                 'status': this.editedItem.status,
                                 'detail': this.editedItem.detail,
                             })

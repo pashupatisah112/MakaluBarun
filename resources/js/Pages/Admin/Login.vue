@@ -37,7 +37,7 @@ export default {
     methods: {
         login() {
             if(this.$refs.form.validate()){
-                axios.post('api/adminLogin', {
+                axios.post('/api/adminLogin', {
                 'username': this.username,
                 'password': this.password
             }).then(res => {

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-toolbar color="white" class="px-10 position-sticky hidden-sm-and-down">
+    <v-toolbar color="white" class="px-10 position-sticky hidden-sm-and-down" height="40">
         <v-btn text color="prime" small>
             <v-icon class="mr-5">mdi-phone</v-icon>
             <span class="font-weight-bold">+977 9841337185</span>

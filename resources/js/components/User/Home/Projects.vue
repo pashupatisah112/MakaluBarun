@@ -16,7 +16,7 @@
             <v-col cols="12" lg="4" md="4" v-for="item in recent" :key="item.id">
                 <sequential-entrance>
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 1 : 16" max-width="400" tile style="transition:0.3s">
+                        <v-card :elevation="hover ? 1 : 16" max-width="400" max-height="460" tile style="transition:0.3s;overflow:hidden">
 
                             <v-img :src="getImage(item)"></v-img>
 
@@ -34,7 +34,7 @@
                                 </v-row>
                             </v-card-subtitle>
 
-                            <v-card-text class="mt-n3">
+                            <v-card-text class="mt-n3 overflow-hidden">
                                 <div>{{item.intro}}</div>
                             </v-card-text>
                         </v-card>

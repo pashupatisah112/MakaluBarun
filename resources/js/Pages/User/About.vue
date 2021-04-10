@@ -4,10 +4,10 @@
         <!-- short detail -->
         <v-row justify="center" id="about">
             <v-col cols="12" lg="8" md="10" align="center">
-                
+
                 <v-icon color="prime" size="100">mdi-account-group</v-icon>
                 <sequential-entrance fromTop>
-                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
+                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
                 </sequential-entrance>
 
                 <sequential-entrance fromBottom>
@@ -24,6 +24,48 @@
         <!-- founder detail -->
         <v-row justify="center" id="founder-detail">
             <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Founder Detail</span></p>
+        </v-row>
+        <v-row justify="center">
+            <v-col cols="12" lg="4" md="5" align="center">
+                <sequential-entrance fromLeft>
+                    <v-card max-width="300" class=" pa-5">
+                        <v-col align="center">
+                            <v-list-item-avatar size="120" style="border:2px solid #8E5324;">
+                                <v-img src="../images/logo.png"></v-img>
+                            </v-list-item-avatar>
+                            <p class="title mb-n3">Full Name</p>
+                            <v-card-subtitle>Position</v-card-subtitle>
+                            <v-row justify="center">
+                                <v-btn fab dark x-small color="prime" href="getFbLink(item)" target="_blank">
+                                    <v-icon>mdi-facebook</v-icon>
+                                </v-btn>
+                                <v-btn fab dark x-small class="mx-5" href="getInstaLink(item)" color="prime" target="_blank">
+                                    <v-icon>mdi-instagram</v-icon>
+                                </v-btn>
+                                <v-btn fab dark x-small color="prime" href="getTwitterLink(item)" target="_blank">
+                                    <v-icon>mdi-twitter</v-icon>
+                                </v-btn>
+                            </v-row>
+                        </v-col>
+                    </v-card>
+
+                </sequential-entrance>
+
+            </v-col>
+            <v-col cols="12" lg="8" md="7" align="center">
+                <sequential-entrance>
+                    <v-card max-width="1000" max-height="300" flat>
+                        <v-card-title class="prime-text mt-lg-16">
+                            <span style="font-family:Marck Script">
+                                <v-icon color="prime">mdi-format-quote-open</v-icon>
+                                We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process.
+                                <v-icon color="prime">mdi-format-quote-close</v-icon>
+                            </span>
+                        </v-card-title>
+                    </v-card>
+                </sequential-entrance>
+            </v-col>
+
         </v-row>
         <!-- end founder details -->
 
@@ -56,8 +98,8 @@
                 <v-row>
                     <v-col cols="6" lg="4" md="4" v-for="(item,i) in goals" :key="i">
                         <sequential-entrance>
-                         
-                            <v-card flat color="transparent" >
+
+                            <v-card flat color="transparent">
                                 <v-col align="center">
                                     <div class="obj prime-back elevation-10">
                                         <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
@@ -66,7 +108,7 @@
 
                                 </v-col>
                             </v-card>
-                         
+
                         </sequential-entrance>
 
                     </v-col>
@@ -191,6 +233,6 @@ export default {
 .obj-text:hover {
     color: #8E5324;
     font-size: 20px;
-    font-weight:bold
+    font-weight: bold
 }
 </style>

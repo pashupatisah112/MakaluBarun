@@ -42,9 +42,9 @@
                     <v-text-field label="Enter new password" outlined dense v-model="newPassword" :type="show2? 'text': 'password'" :append-icon="show2? 'mdi-eye': 'mdi-eye-off'" @click:append="show2 = !show2" :rules="[rules.required,rules.length,rules.case,rules.number]" prepend-inner-icon="mdi-lock"></v-text-field>
                     <v-text-field label="Re-enter new Password" outlined single-line dense type="password" v-model="confirmPassword" :rules="[rules.required,rules.confirm]" prepend-inner-icon="mdi-lock"></v-text-field>
                     <v-row>
-                        <v-btn @click="passwordChangeDialog=false" class="text-capitalize">Cancel</v-btn>
+                        <v-btn @click="passwordChangeDialog=false" rounded outlined class="text-capitalize">Cancel</v-btn>
                         <v-spacer></v-spacer>
-                        <v-btn @click="changePassword" class="text-capitalize">Confirm</v-btn>
+                        <v-btn @click="changePassword" rounded outlined  class="text-capitalize">Confirm</v-btn>
                     </v-row>
                 </v-form>
             </v-card-text>
