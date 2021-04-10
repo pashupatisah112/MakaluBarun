@@ -8,6 +8,7 @@
         </v-row>
         <v-row justify="center">
             <v-col cols="12" lg="4" md="6" v-for="item in gallery" :key="item.id" align="center">
+                <sequential-entrance fromBottom>
                 <div style="max-width:376px;border:2px solid #BE9F50">
                     <v-hover v-slot="{ hover }">
                         <div style="overflow: hidden;">
@@ -27,6 +28,7 @@
                         </div>
                     </v-hover>
                 </div>
+                </sequential-entrance>
             </v-col>
         </v-row>
     </v-container>

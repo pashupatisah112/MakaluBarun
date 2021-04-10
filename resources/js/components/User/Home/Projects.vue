@@ -4,40 +4,46 @@
         <v-row justify="center" class="mt-10">
             <v-col cols="12" lg="6" md="8" align="center">
                 <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Our Recent Projects</span></p>
-                <v-btn rounded dark color="prime" class="text-capitalize" @click="goToProjects">
-                    View All Projects
-                    <v-icon class="ml-2">mdi-arrow-right</v-icon>
-                </v-btn>
+                <v-hover v-slot="{ hover }">
+                    <v-btn :elevation="hover ? 12 : 0" rounded dark color="prime" class="text-capitalize" @click="goToProjects">
+                        View All Projects
+                        <v-icon class="ml-2">mdi-arrow-right</v-icon>
+                    </v-btn>
+                </v-hover>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="12" lg="4" md="4" v-for="item in recent" :key="item.id">
                 <sequential-entrance>
-                    <v-card max-width="400" tile class=" mx-auto overflow-hidden">
-                        <v-img :src="getImage(item)"></v-img>
-                        <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
-                        <v-card-subtitle class="mt-n6">
-                            <v-row class="px-3">
-                                <v-icon small>mdi-clock</v-icon>
-                                <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
-                            </v-row>
-                        </v-card-subtitle>
-                        <v-card-subtitle class="mt-n8">
-                            <v-row class="px-3">
-                                <v-icon small>mdi-map-marker</v-icon>
-                                <p class="caption mt-4 ml-1">{{item.location}}</p>
-                            </v-row>
-                        </v-card-subtitle>
+                    <v-hover v-slot="{ hover }">
+                        <v-card :elevation="hover ? 1 : 16" max-width="400" tile style="transition:0.3s">
 
-                        <v-card-text class="mt-n3">
-                            <div>{{item.intro}}</div>
-                        </v-card-text>
-                    </v-card>
+                            <v-img :src="getImage(item)"></v-img>
+
+                            <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
+                            <v-card-subtitle class="mt-n6">
+                                <v-row class="px-3">
+                                    <v-icon small>mdi-clock</v-icon>
+                                    <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
+                                </v-row>
+                            </v-card-subtitle>
+                            <v-card-subtitle class="mt-n8">
+                                <v-row class="px-3">
+                                    <v-icon small>mdi-map-marker</v-icon>
+                                    <p class="caption mt-4 ml-1">{{item.location}}</p>
+                                </v-row>
+                            </v-card-subtitle>
+
+                            <v-card-text class="mt-n3">
+                                <div>{{item.intro}}</div>
+                            </v-card-text>
+                        </v-card>
+                    </v-hover>
                 </sequential-entrance>
             </v-col>
         </v-row>
     </v-container>
-     
+
 </div>
 </template>
 
@@ -70,10 +76,12 @@ export default {
                 }
             })
         },
-        goToProjects(){
+        goToProjects() {
             this.$router.push({
-                name:'ProjectList',
-                params:{key:'All'}
+                name: 'ProjectList',
+                params: {
+                    key: 'All'
+                }
             })
         }
     }

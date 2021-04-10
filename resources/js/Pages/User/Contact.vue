@@ -8,6 +8,7 @@
         </v-row>
         <v-row justify="center">
             <v-col cols="12" lg="6" md="6">
+                <sequential-entrance fromLeft>
                 <v-list two-line>
                     <v-list-item v-for="(item,i) in contact" :key="i">
                         <v-list-item-icon>
@@ -22,6 +23,7 @@
                         </v-list-item-content>
                     </v-list-item>
                 </v-list>
+                </sequential-entrance>
             </v-col>
 
             <v-col cols="12" lg="6" md="6" align="center">

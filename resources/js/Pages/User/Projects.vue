@@ -18,12 +18,12 @@
                                 <v-chip x-small dark class="mt-16"><span class="title-font">{{item.status}}</span></v-chip>
 
                                 <p class=" text-h4 font-weight-bold mb-0"><span class="title-font">{{item.title}}</span></p>
-                                <v-card flat color="transparent" >
-                                 
+                                <v-card flat color="transparent">
+
                                     <v-row class="px-5" justify="center">
-                                         <v-icon color="white">mdi-clock</v-icon>
+                                        <v-icon color="white">mdi-clock</v-icon>
                                         <p class="mt-5 ml-2 white--text caption">
-                                        <span class="title-font">{{item.start_date}} to <span v-if="item.status=='Finished'">{{item.ended_date}}</span><span v-if="item.status=='Current'">Ongoing</span></span></p>
+                                            <span class="title-font">{{item.start_date}} to <span v-if="item.status=='Finished'">{{item.ended_date}}</span><span v-if="item.status=='Current'">Ongoing</span></span></p>
                                     </v-row>
                                     <v-row class="px-5 mt-n8" justify="center">
                                         <v-icon color="white">mdi-map-marker</v-icon>
@@ -36,9 +36,11 @@
                                 <p class="body-2">
                                     <span class="para-font">
                                         {{item.intro}}
-                                    </span>    
+                                    </span>
                                 </p>
-                                <v-btn light outlined rounded color="prime" class="mx-auto" @click="goToDetail(item)">See More</v-btn>
+                                <v-hover v-slot="{ hover }">
+                                    <v-btn :elevation="hover ? 12 : 0" outlined light rounded color="prime" class="mx-auto" @click="goToDetail(item)">See More</v-btn>
+                                </v-hover>
                             </v-col>
                             <v-col cols="12" lg="4" md="4" class="pa-0">
                                 <v-img height="250" :src="getImage(item)"></v-img>
@@ -77,7 +79,7 @@ export default {
     },
     mounted() {
         this.getSpecificProjects()
-        
+
     },
     methods: {
         getSpecificProjects() {

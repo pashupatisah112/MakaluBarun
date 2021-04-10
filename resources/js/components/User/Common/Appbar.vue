@@ -13,15 +13,23 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn class="mx-2" icon href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank" small>
-            <v-icon>mdi-facebook</v-icon>
-        </v-btn>
-        <v-btn class="mx-2" icon target="_blank" href="https://www.instagram.com/_makalusocialwelfare/" small>
+        <v-hover v-slot="{ hover }">
+            <v-btn class="mx-2 " :elevation="hover ? 12 : 0" icon href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank" small>
+                <v-icon>mdi-facebook</v-icon>
+            </v-btn>
+        </v-hover>
+
+        <v-hover v-slot="{ hover }">
+        <v-btn class="mx-2" :elevation="hover ? 12 : 0" icon target="_blank" href="https://www.instagram.com/_makalusocialwelfare/" small>
             <v-icon>mdi-instagram</v-icon>
         </v-btn>
-        <v-btn class="mx-2" icon small>
+        </v-hover>
+
+        <v-hover v-slot="{ hover }">
+        <v-btn class="mx-2" :elevation="hover ? 12 : 0" icon small>
             <v-icon>mdi-twitter</v-icon>
         </v-btn>
+        </v-hover>
     </v-toolbar>
 
     <v-divider style="border:1px solid #BE9F50 hidden-sm-and-down"></v-divider>
@@ -31,12 +39,12 @@
         <p class="text-h4 prime-text font-weight-bold mx-5"><span class="title-font">Makalu Arun Valley Social Welfare</span></p>
         <v-spacer></v-spacer>
 
-        <v-expand-x-transition>
-            <v-btn rounded dark color="prime" class="text-capitalize mx-1 mbtn" x-large @click="donateDialog=true">
+        <v-hover v-slot="{ hover }">
+            <v-btn :elevation="hover ? 12 : 0" rounded dark color="prime" class="text-capitalize mx-1" x-large @click="donateDialog=true">
                 <v-icon>mdi-currency-usd</v-icon>
                 Donate
             </v-btn>
-        </v-expand-x-transition>
+        </v-hover>
     </v-toolbar>
     <menubar>
     </menubar>
@@ -77,3 +85,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>

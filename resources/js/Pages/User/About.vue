@@ -4,18 +4,19 @@
         <!-- short detail -->
         <v-row justify="center" id="about">
             <v-col cols="12" lg="8" md="10" align="center">
-                <!-- <sequential-entrance fromTop> -->
+                
                 <v-icon color="prime" size="100">mdi-account-group</v-icon>
+                <sequential-entrance fromTop>
                 <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
-                <!-- </sequential-entrance> -->
+                </sequential-entrance>
 
-                <!-- <sequential-entrance fromTop> -->
-                <p class="body-1">
-                    <span class="para-font">
-                    Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
-                    </span>
-                </p>
-                <!-- </sequential-entrance> -->
+                <sequential-entrance fromBottom>
+                    <p class="body-1">
+                        <span class="para-font">
+                            Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
+                        </span>
+                    </p>
+                </sequential-entrance>
             </v-col>
         </v-row>
         <!-- end short detail -->
@@ -26,19 +27,23 @@
         </v-row>
         <!-- end founder details -->
 
-        <!-- working area -->
+        <!-- mission -->
         <v-row justify="center" class="mt-10" id="mission">
             <v-col cols="12" lg="10" md="8" align="center">
-                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Our Mission</span></p>
-                <p class="body-1">
-                    <span class="para-font">
-                    We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process. A community where every individual has access to basic needs and requirements.
-                    </span>
-                </p>
+                <sequential-entrance fromTop>
+                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Our Mission</span></p>
+                </sequential-entrance>
+                <sequential-entrance fromBottom>
+                    <p class="body-1">
+                        <span class="para-font">
+                            We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process. A community where every individual has access to basic needs and requirements.
+                        </span>
+                    </p>
+                </sequential-entrance>
             </v-col>
 
         </v-row>
-        <!-- end working area -->
+        <!-- end mission -->
 
         <!-- objective -->
         <v-row id="goals">
@@ -51,16 +56,17 @@
                 <v-row>
                     <v-col cols="6" lg="4" md="4" v-for="(item,i) in goals" :key="i">
                         <sequential-entrance>
-
-                            <v-card flat color="transparent">
+                         
+                            <v-card flat color="transparent" >
                                 <v-col align="center">
                                     <div class="obj prime-back elevation-10">
                                         <v-icon dark class="mt-5" size="60">{{item.icon}}</v-icon>
                                     </div>
-                                    <p class="body-1 mt-2 obj-text" @click="showDetail(item)"><span class="title-font">{{item.title}}</span></p>
+                                    <p class="body-1 mt-2" @click="showDetail(item)"><span class="title-font obj-text">{{item.title}}</span></p>
 
                                 </v-col>
                             </v-card>
+                         
                         </sequential-entrance>
 
                     </v-col>
@@ -166,6 +172,7 @@ export default {
     height: 100px;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
+    transition: 0.5s;
 }
 
 .obj:hover {
@@ -178,10 +185,12 @@ export default {
 
 .obj-text {
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .obj-text:hover {
     color: #8E5324;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight:bold
 }
 </style>

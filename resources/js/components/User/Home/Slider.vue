@@ -14,8 +14,10 @@
 
                 <v-card-actions>
                     <sequential-entrance fromBottom delay="2000">
-                        <v-btn rounded dark color="sec" width="150" class="text-capitalize" @click="goToProjects">See More</v-btn>
-                        </sequential-entrance>
+                        <v-hover v-slot="{ hover }">
+                            <v-btn :elevation="hover ? 12 : 0" rounded dark color="prime" width="150" class="text-capitalize" @click="goToProjects">See More</v-btn>
+                        </v-hover>
+                    </sequential-entrance>
                 </v-card-actions>
 
             </v-card>
@@ -45,10 +47,12 @@ export default {
         getImage(item) {
             return "../storage/" + item.image
         },
-        goToProjects(){
+        goToProjects() {
             this.$router.push({
-                name:'ProjectList',
-                params:{key:'All'}
+                name: 'ProjectList',
+                params: {
+                    key: 'All'
+                }
             })
         }
     }
