@@ -14,23 +14,22 @@
                     </v-card>
                 </v-slide-item>
             </v-slide-group> -->
-            
-                <vueper-slides style="width:100%;" :slide-ratio="1 / 5" autoplay :arrows="false" class="no-shadow hidden-sm-and-down" :visible-slides="3" slide-multiple :gap="3" :breakpoints="{ 961: { visibleSlides: 2, slideMultiple: 2 },376: { visibleSlides: 1, slideMultiple: 1 } }">
-                    <vueper-slide v-for="(item, i) in memory" :key="i" :image="getImage(item)" style="border:2px solid #BE9F50;color:white;">
-                    </vueper-slide>
-                </vueper-slides>
-            
 
-                <vueper-slides style="width:100%;" :slide-ratio="1 / 2" autoplay :arrows="false" class="no-shadow hidden-md-and-up" :visible-slides="3" slide-multiple :gap="3" :breakpoints="{ 961: { visibleSlides: 2, slideMultiple: 2 },376: { visibleSlides: 1, slideMultiple: 1 } }">
-                    <vueper-slide v-for="(item, i) in memory" :key="i" :image="getImage(item)" style="border:2px solid #BE9F50;color:white;">
-                    </vueper-slide>
-                </vueper-slides>
+            <vueper-slides style="width:100%;" :slide-ratio="1 / 5" autoplay :arrows="false" class="no-shadow hidden-sm-and-down" :visible-slides="3" slide-multiple :gap="3" :breakpoints="{ 961: { visibleSlides: 2, slideMultiple: 2 },376: { visibleSlides: 1, slideMultiple: 1 } }">
+                <vueper-slide v-for="(item, i) in memory" :key="i" :image="getImage(item)" style="border:2px solid #BE9F50;color:white;">
+                </vueper-slide>
+            </vueper-slides>
+
+            <vueper-slides style="width:100%;" :slide-ratio="1 / 2" autoplay :arrows="false" class="no-shadow hidden-md-and-up" :visible-slides="3" slide-multiple :gap="3" :breakpoints="{ 961: { visibleSlides: 2, slideMultiple: 2 },376: { visibleSlides: 1, slideMultiple: 1 } }">
+                <vueper-slide v-for="(item, i) in memory" :key="i" :image="getImage(item)" style="border:2px solid #BE9F50;color:white;">
+                </vueper-slide>
+            </vueper-slides>
 
         </v-row>
     </v-container>
     <v-container fluid>
         <v-row>
-            <v-img src="../images/makalu.jpg" :aspect-ratio="16/3">
+            <v-img src="../images/hands.jpg" :aspect-ratio="16/3">
 
                 <v-container fluid style="height:100%;color:white;background-color:#151515;opacity:0.7">
 
@@ -52,9 +51,11 @@
                         </v-col>
                     </v-row>
                 </v-container>
+
             </v-img>
         </v-row>
     </v-container>
+
     <v-overlay absolute :value="overlay">
         <v-card max-width="600" max-height="400" color="transparent">
             <v-btn icon @click="overlay = false">

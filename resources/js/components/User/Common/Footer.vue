@@ -6,7 +6,7 @@
             <!-- organization info -->
             <v-col cols="12" lg="3" md="6">
                 <v-card flat dark color="transparent">
-                    <v-card-title class="text-white">MAKALU ARUN VALLEY</v-card-title>
+                    <v-card-title class="sec-text">MAKALU ARUN VALLEY</v-card-title>
 
                     <v-card-subtitle>
                         An Organization that believes in hope of better mankind and services.
@@ -15,7 +15,7 @@
                         <v-btn fab small href="https://www.facebook.com/Makalu-Arun-Valley-Social-Welfare-100163585519928" target="_blank">
                             <v-icon>mdi-facebook</v-icon>
                         </v-btn>
-                        <v-btn fab small target="_blank" href="">
+                        <v-btn fab small target="_blank" href="https://twitter.com/MakaluW">
                             <v-icon>mdi-twitter</v-icon>
                         </v-btn>
                         <v-btn fab small target="_blank" href="https://www.instagram.com/_makalusocialwelfare/">
@@ -64,10 +64,10 @@
                     <v-card-title>
                         Our Association
                     </v-card-title>
-                    <v-row>
+                    <v-row justify="center">
                         <v-col>
-                            <v-img src="../images/partner.png" max-width="75" @click="goToAlpine" class="mx-5 assoc"></v-img>
-                            <p>Family Alpine Trek</p>
+                            <v-img src="../images/partner.png" max-width="150" @click="goToAlpine" class="mx-5 assoc"></v-img>
+                            <p class="ml-10">Family Alpine Trek</p>
                         </v-col>
                     </v-row>
 

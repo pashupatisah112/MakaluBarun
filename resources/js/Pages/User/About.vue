@@ -1,71 +1,78 @@
 <template>
-<div>
+<div class="norm-background">
     <v-container>
         <!-- short detail -->
-        <v-row justify="center" id="about">
-            <v-col cols="12" lg="8" md="10" align="center">
+        <v-row justify="center" id="about" class="mt-10">
+            <v-img src="../images/valley.png" :aspect-ratio="16/3">
+                <v-container fluid style="height:100%;color:white;background-color:#151515;opacity:0.7">
+                    <v-row justify="center">
+                        <v-col cols="12" lg="8" md="10" align="center">
+                            <v-img src="../images/logo.png" max-width="100"></v-img>
+                            <!-- <v-icon color="prime" size="100">mdi-account-group</v-icon> -->
+                            <sequential-entrance fromTop>
+                                <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
+                            </sequential-entrance>
 
-                <v-icon color="prime" size="100">mdi-account-group</v-icon>
-                <sequential-entrance fromTop>
-                    <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">About Makalu Arun</span></p>
-                </sequential-entrance>
+                            <sequential-entrance fromBottom>
+                                <p class="body-1">
+                                    <span class="para-font">
+                                        Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
+                                    </span>
+                                </p>
+                            </sequential-entrance>
+                        </v-col>
+                    </v-row>
 
-                <sequential-entrance fromBottom>
-                    <p class="body-1">
-                        <span class="para-font">
-                            Makalu Arun Valley Welfare is a non profit organization which has been established with a mission to serve and hope for a peaceful and healthy Nepal. We are a group of people who believes in power of unity to change the world. Everyone can contribute to one another in some ways.
-                        </span>
-                    </p>
-                </sequential-entrance>
-            </v-col>
+                </v-container>
+            </v-img>
+
         </v-row>
         <!-- end short detail -->
 
         <!-- founder detail -->
-        <v-row justify="center" id="founder-detail">
-            <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold"><span class="title-font">Founder Detail</span></p>
-        </v-row>
-        <v-row justify="center">
-            <v-col cols="12" lg="4" md="5" align="center">
-                <sequential-entrance fromLeft>
-                    <v-card max-width="300" class=" pa-5">
-                        <v-col align="center">
-                            <v-list-item-avatar size="120" style="border:2px solid #8E5324;">
-                                <v-img src="../images/logo.png"></v-img>
-                            </v-list-item-avatar>
-                            <p class="title mb-n3">Full Name</p>
-                            <v-card-subtitle>Position</v-card-subtitle>
-                            <v-row justify="center">
-                                <v-btn fab dark x-small color="prime" href="getFbLink(item)" target="_blank">
-                                    <v-icon>mdi-facebook</v-icon>
-                                </v-btn>
-                                <v-btn fab dark x-small class="mx-5" href="getInstaLink(item)" color="prime" target="_blank">
-                                    <v-icon>mdi-instagram</v-icon>
-                                </v-btn>
-                                <v-btn fab dark x-small color="prime" href="getTwitterLink(item)" target="_blank">
-                                    <v-icon>mdi-twitter</v-icon>
-                                </v-btn>
-                            </v-row>
+
+        <v-row justify="center" style="margin-top:10%">
+
+            <v-img src="../images/makalu.jpg" :aspect-ratio="16/3">
+                <v-container fluid style="height:100%;color:white;background-color:#151515;opacity:0.8">
+                    <v-row justify="center" id="founder-detail">
+                        <p class="text-lg-h4 text-md-h4 text-sm-h5 font-weight-bold white--text"><span class="title-font">Founder Detail</span></p>
+                    </v-row>
+                    <v-row justify="center">
+                        <v-col cols="12" lg="4" md="5" align="center">
+                            <sequential-entrance fromLeft>
+                                    <v-col align="center">
+                                        <v-list-item-avatar size="120" style="border:5px solid #BE9F50;" color="prime">
+                                            
+                                            <v-img src="../images/founder.jpg" style="opacity:1;z-index:2"></v-img>
+                                        </v-list-item-avatar>
+                                        <p class="title mb-n3 white--text">Lakpa Sherpa (LP)</p>
+                                        <v-card-subtitle class="white--text"><b>Founder/Chairperson<br>
+                                                Social Worker, Entrepreneur<br>
+                                                founder@mavwelfare.org<br>
+                                                9808128523</b>
+
+                                        </v-card-subtitle>
+                                    </v-col>
+                            </sequential-entrance>
+
                         </v-col>
-                    </v-card>
-
-                </sequential-entrance>
-
-            </v-col>
-            <v-col cols="12" lg="8" md="7" align="center">
-                <sequential-entrance>
-                    <v-card max-width="1000" max-height="300" flat>
-                        <v-card-title class="prime-text mt-lg-16">
-                            <span style="font-family:Marck Script">
-                                <v-icon color="prime">mdi-format-quote-open</v-icon>
-                                We want a peaceful and healthy Nepal where all the communities have liberties to exercise their basic rights & need, lead a secure, peaceful and healthy life and mainstreaming them into the development process.
-                                <v-icon color="prime">mdi-format-quote-close</v-icon>
-                            </span>
-                        </v-card-title>
-                    </v-card>
-                </sequential-entrance>
-            </v-col>
-
+                        <v-col cols="12" lg="8" md="7" align="center">
+                            <sequential-entrance>
+                                <v-card max-width="1000" max-height="300" color="transparent" flat class="mx-5">
+                                    <v-card-title class="mt-lg-16 white--text">
+                                        <span style="font-family:Marck Script">
+                                            <v-icon color="white">mdi-format-quote-open</v-icon>
+                                            I have a dream of healthy and educated Nepal. I invite every human being to help me achieve my goal. There is always hope for mankind. Come and let's celebrate it together.
+                                            <v-icon color="white">mdi-format-quote-close</v-icon>
+                                        </span>
+                                    </v-card-title>
+                                </v-card>
+                            </sequential-entrance>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-img>
         </v-row>
         <!-- end founder details -->
 
