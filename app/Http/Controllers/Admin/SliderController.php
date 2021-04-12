@@ -36,7 +36,7 @@ class SliderController extends Controller
     }
     public function addSliderImage(Request $request)
     {
-        $path = $request->selectedFile->store('sliderImages');
+        $path = $request->selectedFile->store('slider');
         $slider=Slider::where('id',$request->id)->first();
         $slider->image=$path;
         $slider->save();
@@ -44,7 +44,7 @@ class SliderController extends Controller
     }
     public function changeSliderImage(Request $request)
     {
-        $path = $request->selectedFile->store('sliderImages');
+        $path = $request->selectedFile->store('slider');
         $slide=Slider::where('id',$request->id)->first();
         Storage::disk('public')->delete($slide['image']);
         $slide->image=$path;

@@ -55,7 +55,7 @@ class ProjectController extends Controller
     }
     public function addProjectImage(Request $request)
     {
-        $path = $request->selectedFile->store('projectImages');
+        $path = $request->selectedFile->store('project');
         $project=Project::where('id',$request->id)->first();
         $project->image=$path;
         $project->save();
@@ -63,7 +63,7 @@ class ProjectController extends Controller
     }
     public function changeImage(Request $request)
     {
-        $path = $request->selectedFile->store('projectImages');
+        $path = $request->selectedFile->store('project');
         $project=Project::where('id',$request->id)->first();
         Storage::disk('public')->delete($project['image']);
         $project->image=$path;

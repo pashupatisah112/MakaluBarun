@@ -29,7 +29,7 @@ class GalleryController extends Controller
     }
     public function addGalleryImage(Request $request)
     {
-        $path = $request->selectedFile->store('galleryImages');
+        $path = $request->selectedFile->store('gallery');
         $gallery=Gallery::where('id',$request->id)->first();
         $gallery->image=$path;
         $gallery->save();

@@ -29,7 +29,7 @@ class MemoryController extends Controller
     }
     public function addMemoryImage(Request $request)
     {
-        $path = $request->selectedFile->store('memoryImages');
+        $path = $request->selectedFile->store('memory');
         $memory=Memory::where('id',$request->id)->first();
         $memory->image=$path;
         $memory->save();
