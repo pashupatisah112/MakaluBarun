@@ -327,7 +327,7 @@ export default {
             this.imageViewDialog = true
         },
         getImage(selected) {
-            return "../storage/" + selected.image
+            return "storage/app/public" + selected.image
         },
         onButtonClick() {
             this.isSelecting = true;

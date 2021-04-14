@@ -16,15 +16,15 @@
             <v-col cols="12" lg="4" md="4" v-for="item in recent" :key="item.id">
                 <sequential-entrance>
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 1 : 16" max-width="400" max-height="460" tile style="transition:0.3s;overflow:hidden">
+                        <v-card :elevation="hover ? 1 : 16" max-width="400" height="460" tile style="transition:0.3s;overflow:hidden">
 
-                            <v-img :src="getImage(item)"></v-img>
+                            <v-img :src="getImage(item)" height="200"></v-img>
 
                             <v-card-title @click="goToDetail(item)" class="hov">{{item.title}}</v-card-title>
                             <v-card-subtitle class="mt-n6">
                                 <v-row class="px-3">
                                     <v-icon small>mdi-clock</v-icon>
-                                    <p class="caption mt-4 ml-1">{{item.ended_date}} </p>
+                                    <p class="caption mt-4 ml-1"><span class="title-font">{{item.start_date}} to <span v-if="item.status=='Finished'">{{item.ended_date}}</span><span v-if="item.status=='Current'">Ongoing</span></span> </p>
                                 </v-row>
                             </v-card-subtitle>
                             <v-card-subtitle class="mt-n8">

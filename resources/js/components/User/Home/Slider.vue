@@ -9,7 +9,7 @@
 
                 <sequential-entrance delay="2000">
 
-                    <v-card-title class="text-lg-h3 text-md-h4 text-sm-h5 text-uppercase para-font"><span class="para-font">{{item.tag}}</span></v-card-title>
+                    <p class="text-lg-h3 text-md-h4 text-sm-h5 text-uppercase para-font mt-3"><span class="para-font">{{item.tag}}</span></p>
                 </sequential-entrance>
 
                 <v-card-actions>

@@ -201,17 +201,24 @@
     <!-- end status change dialog -->
 
     <!--product view dialog-->
-    <v-dialog max-width="900" persistent v-model="productViewDialog">
+    <v-dialog max-width="1000" persistent v-model="productViewDialog">
         <v-card>
             <v-btn icon @click="productViewDialog = false" class="float-right">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
 
             <v-container fluid>
-                <v-row>
-                    <v-col cols="12">
+                <v-row justify="center">
+                    <p class="font-weight-bold text-h5">Intro</p>
+                </v-row>
+                <v-row class="px-10">
+                    <p class="body-2">{{selected.intro }}</p>
+                </v-row>
+                <v-row justify="center">
+                        <p class="text-h5 font-weight-bold">Detail</p>
+                </v-row>
+                <v-row class="px-10">
                         <div v-html="selected.detail">{{selected.detail }}</div>
-                    </v-col>
                 </v-row>
             </v-container>
         </v-card>
